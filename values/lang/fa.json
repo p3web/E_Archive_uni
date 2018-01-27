@@ -316,10 +316,10 @@
   "zip_code_length": "طول مجاز 10 رقم",
   "Partition": "قسمت ها",
   "Directory": "فهرست",
-  "Ph.D":"دکترا",
-  "Masters":"کارشناسی ارشد",
-  "Bachelor":"کارشناسی",
-  "Assistant":"کاردانی",
+  "Ph.D":"  دکترا",
+  "Masters":"  کارشناسی ارشد",
+  "Bachelor":"  کارشناسی",
+  "Assistant":"  کاردانی",
   "Software":"نرم افزار",
   "Electronic":"الکترونیک",
   "Partition List":"لیست قسمت ها",
@@ -382,5 +382,7 @@
   "home_phone_format_incorrect":"تلفن را درست وارد کنید",
   "delete_user":"حذف",
   "studentset":"ثبت اطلاعات فردی",
+  "software":"نرم افزار",
+  "electronic":"الکترونیک",
   "selectyear":"انتخاب سال ورودی"
 }

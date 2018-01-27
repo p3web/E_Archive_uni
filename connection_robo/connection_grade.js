@@ -8,6 +8,9 @@
         
         grade_connection.get_call_back = function (data){
             //TODO: set code after the server response
+
+
+
             var tag = "";
             for (var i = 0; i < data.length; i++) {
                 tag += '<option value="' + data[i].name + '"style="color: #000000;">' + data[i].name + '</option>';
