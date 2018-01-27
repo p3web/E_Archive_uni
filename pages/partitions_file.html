@@ -140,22 +140,24 @@
             '</div>'
             '                </div>';
 
-
-            var x = document.createElement("div");
-            x.setAttribute("id",'list'+ m);
-
-
-            var name=document.getElementById('name'+z).value;
-            var property=document.getElementById('property'+z).value;
+        var name=document.getElementById('name'+z).value;
+        var property=document.getElementById('property'+z).value;
 
 
             if( name !="" || property !=""){
+                var x = document.createElement("div");
+                x.setAttribute("id",'list'+ m);
+
+
+
+
                 document.getElementById('new').appendChild(x);
                 document.getElementById('list'+m).innerHTML=tag;
                 z=m;
 
             }else{
-                alert('ابتدا فیلد ها را کامل کنید.')
+                alert('ابتدا فیلد ها را کامل کنید.');
+                m-=1;
             }
 
 
@@ -228,8 +230,9 @@ var jj=0;
     }
     function delform(idm){
       var  elements=document.getElementById('saveForm'+idm);
-      elements.parentNode.removeChild(elements);
-
+      //elements.parentNode.removeChild(elements);
+        //elements.removeChild(elements);
+        elements.remove();
         m-=1;
         if(z==1)
         {

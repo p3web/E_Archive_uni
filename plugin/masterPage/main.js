@@ -12,11 +12,11 @@ $.getJSON('values/user.json', function (data) {
 
 setTimeout(function () {
 
-  /*  $.getJSON('values/menu.json', function (data) {
-        var __menu = new menu(data.items);
-        __menu.render();
-    });*/
-menu1();
+    /*  $.getJSON('values/menu.json', function (data) {
+          var __menu = new menu(data.items);
+          __menu.render();
+      });*/
+    menu1();
 }, 1000);
 
 
@@ -90,77 +90,70 @@ function windows_full_screen() {
             || el.webkitRequestFullScreen
             || el.mozRequestFullScreen
             || el.msRequestFullscreen
-        ;
+    ;
 
     rfs.call(el);
 }
-var grade_id,field_of_study_id,menulist;
+
+var grade_id, field_of_study_id, menulist;
+
 function menu1() {
     var param = {"act": "grade_get"};
-    ajax.sender_data_json_by_url_callback('controller_robo/controller_grade.php' , param , getGrade , "POST");
-     param = {"act": "field_of_study_get"};
+    ajax.sender_data_json_by_url_callback('controller_robo/controller_grade.php', param, getGrade, "POST");
+    param = {"act": "field_of_study_get"};
     ajax.sender_data_json_by_url_callback('controller_robo/controller_field_of_study.php', param, getfied, "POST");
 
-     param = {"act": "menu_v_list_get"};
-    ajax.sender_data_json_by_url_callback('controller_robo/controller_menu_v_list.php' , param , getmenu , "POST");
+    param = {"act": "menu_v_list_get"};
+    ajax.sender_data_json_by_url_callback('controller_robo/controller_menu_v_list.php', param, getmenu, "POST");
 
 }
-function getGrade(data){
-    grade_id=data;
-   //console.log(grade_id);
-   if(grade_id != undefined && menulist != undefined)
-   {
-       createmenu();
-   }
-}
-function getfied(data){
-    field_of_study_id=data;
-   // console.log(field_of_study_id);
-}
-function getmenu(data){
-    menulist=data;
-    //console.log(menulist);
-    if(grade_id != undefined && menulist != undefined)
-    {
+
+function getGrade(data) {
+    grade_id = data;
+    //console.log(grade_id);
+    if (grade_id != undefined && menulist != undefined) {
         createmenu();
     }
 }
+
+function getfied(data) {
+    field_of_study_id = data;
+    // console.log(field_of_study_id);
+}
+
+function getmenu(data) {
+    menulist = data;
+    //console.log(menulist);
+    if (grade_id != undefined && menulist != undefined) {
+        createmenu();
+    }
+}
+
 function createmenu() {
-    var JsonArray =[
-        {
-            items : [{
-              name : '',
-              items :[
-
-              ]
-
-            }]
-        }
-    ];
-    var TempJson ,link ;
+    var JsonArray = [{items: [{name: '', items: []}]}];
+    var TempJson, link;
 
 
+    for (var i = 0; i < grade_id.length; i++) {
 
-
-            for(var i =0 ; i < grade_id.length ; i++){
-
-                    TempJson = {
-                        icon : 'glyphicon glyphicon-education',
-                        name : grade_id[i].name};
-                    TempJson['items'] = [];
-                for(var c = 0 ; c < menulist.length ; c++){
-                    if(grade_id[i].ID == menulist[c].grade_id){
-                        link = '#pages/selectyear?grade_id='+grade_id[i].ID + '&field_of_study_id=' + menulist[c].field_of_study_id;
-                        TempJson['items'].push({
-                            name : menulist[c].name,
-                            link : link
-                        });
-                    }
-                }
-                JsonArray[0].items[0].items.push(TempJson);
+        TempJson = {
+            icon: 'glyphicon glyphicon-education',
+            name: grade_id[i].name
+        };
+        TempJson['items'] = [];
+        for (var c = 0; c < menulist.length; c++) {
+            if (grade_id[i].ID == menulist[c].grade_id) {
+                link = '#pages/selectyear?grade_id=' + grade_id[i].ID + '&field_of_study_id=' + menulist[c].field_of_study_id;
+                TempJson['items'].push({
+                    name: menulist[c].name,
+                    link: link
+                });
             }
+        }
+        JsonArray[0].items[0].items.push(TempJson);
+    }
 
-   console.log(JsonArray);
+   // console.log(JsonArray);
     var __menu = new menu(JsonArray[0].items);
     __menu.render();
 

@@ -20,12 +20,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/plugin/masterPage/main.js">
+      <file leaf-file-name="partitions_file.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pages/partitions_file.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="148" column="31" lean-forward="false" selection-start-line="148" selection-start-column="31" selection-end-line="148" selection-end-column="31" />
-              <folding />
+            <state relative-caret-position="256">
+              <caret line="145" column="0" lean-forward="true" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
+              <folding>
+                <marker date="1517086399275" expanded="true" signature="3757:3771" ph="..." />
+                <marker date="1517086399275" expanded="true" signature="4458:4475" ph="..." />
+                <marker date="1517086399275" expanded="true" signature="6042:6059" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -42,7 +46,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>shamsi</find>
       <find>get_by_user_name_</find>
       <find>get_by_user_name</find>
       <find>.value</find>
@@ -72,6 +75,7 @@
       <find>btn-group</find>
       <find>grade_get</find>
       <find>_get</find>
+      <find>grade_id</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Program Files (x86)\EasyPHP-12.0\www\E_Archive</dir>
@@ -83,7 +87,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pages/edite_student.html" />
         <option value="$PROJECT_DIR$/pages/partitionSet.html" />
         <option value="$PROJECT_DIR$/connection_robo/connection_files.js" />
         <option value="$PROJECT_DIR$/plugin/DatePicker/js/calendar-setup.js" />
@@ -108,10 +111,8 @@
         <option value="$PROJECT_DIR$/pages/student_set_profile.html" />
         <option value="$PROJECT_DIR$/pages/student_set.html" />
         <option value="$PROJECT_DIR$/pages/student_set_user.html" />
-        <option value="$PROJECT_DIR$/pages/partitions_file.html" />
         <option value="$PROJECT_DIR$/template/build/css/custom.min.css" />
         <option value="$PROJECT_DIR$/connection_robo_user/controller_robo/controller_user.php" />
-        <option value="$PROJECT_DIR$/pages/studentlist.html" />
         <option value="$PROJECT_DIR$/connection_robo_user/model/data_access/access_user.php" />
         <option value="$PROJECT_DIR$/connection_robo_user/connection_robo/connection_user.js" />
         <option value="$PROJECT_DIR$/controller_robo/controller_student.php" />
@@ -132,8 +133,11 @@
         <option value="$PROJECT_DIR$/connection_robo/connection_menu.js" />
         <option value="$PROJECT_DIR$/connection_robo/test.js" />
         <option value="$PROJECT_DIR$/values/entity/menu.js" />
-        <option value="$PROJECT_DIR$/plugin/masterPage/main.js" />
         <option value="$PROJECT_DIR$/values/lang/fa.json" />
+        <option value="$PROJECT_DIR$/conf.js" />
+        <option value="$PROJECT_DIR$/plugin/masterPage/main.js" />
+        <option value="$PROJECT_DIR$/pages/studentlist.html" />
+        <option value="$PROJECT_DIR$/pages/partitions_file.html" />
       </list>
     </option>
   </component>
@@ -147,7 +151,7 @@
     <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
@@ -168,8 +172,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -180,18 +182,14 @@
             <path>
               <item name="E_Archive" type="b2602c69:ProjectViewProjectNode" />
               <item name="E_Archive_uni" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="values" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="E_Archive" type="b2602c69:ProjectViewProjectNode" />
-              <item name="E_Archive_uni" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="values" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="lang" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -204,11 +202,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Program Files (x86)\EasyPHP-12.0\www\E_Archive Mojtaba\E_Archive_uni\template\build\images" />
       <recent name="C:\Program Files (x86)\EasyPHP-12.0\www\E_Archive Mojtaba\E_Archive_uni\controller_robo" />
       <recent name="C:\Program Files (x86)\EasyPHP-12.0\www\E_Archive Mojtaba\E_Archive_uni\connection_robo" />
       <recent name="C:\Program Files (x86)\EasyPHP-12.0\www\E_Archive Mojtaba\E_Archive_uni\model\data_access" />
       <recent name="C:\Program Files (x86)\EasyPHP-12.0\www\E_Archive Mojtaba\plugin" />
-      <recent name="C:\Program Files (x86)\EasyPHP-12.0\www\E_Archive Mojtaba\model" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Program Files (x86)\EasyPHP-12.0\www\E_Archive Mojtaba\model\database" />
@@ -331,15 +329,17 @@
       <workItem from="1516964733010" duration="11243000" />
       <workItem from="1516983007589" duration="7690000" />
       <workItem from="1517054415432" duration="2262000" />
-      <workItem from="1517059919280" duration="12145000" />
+      <workItem from="1517059919280" duration="12906000" />
+      <workItem from="1517081311028" duration="2032000" />
+      <workItem from="1517085428481" duration="1022000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="345581000" />
+    <option name="totallyTimeSpent" value="349396000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -541,13 +541,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/studentlist.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="120" lean-forward="false" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="120" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/connection_robo_user/connection_robo/connection_user.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -597,26 +590,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/partitions_file.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2465">
-          <caret line="146" column="0" lean-forward="false" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/studentset.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="103">
           <caret line="387" column="0" lean-forward="false" selection-start-line="387" selection-start-column="0" selection-end-line="387" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#div#0;n#div#2;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#hr#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#0;n#div#0;n#div#2;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -624,7 +601,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
           <caret line="25" column="47" lean-forward="false" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -632,33 +608,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <marker date="1517062651284" expanded="true" signature="514:529" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugin/masterPage/menu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="59" column="9" lean-forward="false" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/plugin/masterPage/menu.js" />
     <entry file="file://$PROJECT_DIR$/plugin/global/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="616">
           <caret line="148" column="118" lean-forward="false" selection-start-line="148" selection-start-column="118" selection-end-line="148" selection-end-column="118" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -666,10 +623,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="34" lean-forward="false" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -677,9 +630,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="66" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="66" />
-          <folding>
-            <marker date="1516991596919" expanded="true" signature="448:463" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -687,7 +637,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -695,7 +644,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="31" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -703,7 +651,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="32" lean-forward="false" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -711,7 +658,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="54" lean-forward="true" selection-start-line="1" selection-start-column="54" selection-end-line="1" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -719,7 +665,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="72" lean-forward="false" selection-start-line="3" selection-start-column="72" selection-end-line="3" selection-end-column="72" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -727,9 +672,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="48" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="48" />
-          <folding>
-            <marker date="1516991596800" expanded="true" signature="409:424" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -737,7 +679,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="65" lean-forward="false" selection-start-line="3" selection-start-column="65" selection-end-line="3" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -745,9 +686,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1479">
           <caret line="87" column="22" lean-forward="false" selection-start-line="87" selection-start-column="22" selection-end-line="87" selection-end-column="22" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -755,7 +693,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="32" lean-forward="true" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -763,12 +700,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="30" />
-          <folding>
-            <element signature="e#781#1160#0" expanded="false" />
-            <element signature="e#1170#1559#0" expanded="false" />
-            <element signature="e#1569#1951#0" expanded="false" />
-            <element signature="e#1961#2245#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -776,15 +707,39 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="191">
           <caret line="322" column="14" lean-forward="false" selection-start-line="322" selection-start-column="14" selection-end-line="322" selection-end-column="14" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="97" lean-forward="false" selection-start-line="11" selection-start-column="97" selection-end-line="11" selection-end-column="97" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plugin/masterPage/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="148" column="31" lean-forward="false" selection-start-line="148" selection-start-column="31" selection-end-line="148" selection-end-column="31" />
-          <folding />
+        <state relative-caret-position="559">
+          <caret line="155" column="5" lean-forward="false" selection-start-line="155" selection-start-column="5" selection-end-line="155" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/studentlist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="86" column="69" lean-forward="false" selection-start-line="86" selection-start-column="61" selection-end-line="86" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/partitions_file.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="145" column="0" lean-forward="true" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
+          <folding>
+            <marker date="1517086399275" expanded="true" signature="3757:3771" ph="..." />
+            <marker date="1517086399275" expanded="true" signature="4458:4475" ph="..." />
+            <marker date="1517086399275" expanded="true" signature="6042:6059" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
