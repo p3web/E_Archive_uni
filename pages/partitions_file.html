@@ -1,0 +1,250 @@
+<div data-ng-app="" data-ng-init="title='build order'">
+    <div class="page-title">
+        <div class="title_left">
+            <h3 id="title">
+                <small id="tiny_title" data-ng-bind="title"></small>
+            </h3>
+        </div>
+
+        <div class="title_right">
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="row">
+
+
+    <div class="col-xs-12">
+        <ul class="nav nav-tabs graph pull-right" >
+
+            <li>
+                <a href="#2a" data-toggle="tab">افزودن فایل</a>
+            </li>
+            <li class="active">
+                <a href="#1a" data-toggle="tab" onclick="gridRefrsh();">لیست  فایل ها</a>
+            </li>
+
+        </ul>
+        <br><br>
+        <div class="tab-content clearfix"
+             style="width: 900px;height: auto;color: #000000  ;direction: rtl;
+             background-color: #ffffff0d;padding: 20px;margin-right: 40px;">
+            <div class="tab-pane active" id="1a">
+                <div id="PGrid">
+
+                </div>
+            </div>
+            <div class="tab-pane" id="2a">
+                <button class="btn btn-round" style="background-color:#6c6c987a;color: white;" onclick="insert()">+
+                </button>
+                <div class="col-xs-12" id="saveForm0" style="color: #172d44">
+
+                    <input type="hidden" class="form-control" id="student_id">
+                    <div class=" col-xs-5   pull-right">
+                        <label for="name">نام
+                            <input type="text" class="form-control" id="name"></label>
+                    </div>
+                    <input type="hidden" class="form-control" id="type" value="1">
+
+                    <div class=" col-xs-3   pull-right" style="padding-top:20px;">
+                        <div class="btn btn-default" onclick="openKCFinder_singleFile('url',select)">آپلود</div>
+                        <input type="hidden" id="url" value="mk.jpg">
+                    </div>
+                    <div class=" col-xs-3   pull-right">
+                        <label for="property">خصوصیات
+                            <input type="text" class="form-control" id="property"></label>
+                    </div>
+                    <input type="hidden" class="form-control" id="size" value="70">
+                    <input type="hidden" class="form-control" id="is_delete" value="1">
+                    <input type="hidden" class="form-control" id="modified_by" value="1">
+                    <input type="hidden" class="form-control" id="created_by" value="1">
+                    <div class="mdl-layout-spacer"></div>
+                    <div class="mdl-card__actions mdl-card--border">
+
+                        <input type="hidden" id="creationDate">
+
+
+                    </div>
+
+                </div>
+
+                <div id="new">
+
+                </div>
+                <div class=" col-xs-12   pull-right">
+                    <div class="btn btn-primary" onclick="setpart()">ثبت</div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+</div>
+<script src="connection_robo/connection_files.js"></script>
+<script>
+    var m=0;
+    var z="";
+    var id = get_query_string_by_param('ID');
+    files_connection.get_by_student_id_grid(id);
+
+    function select() {
+
+        var address1 = document.getElementById('url');
+        var x = document.createElement("img");
+        x.setAttribute("src", address1.value);
+        x.setAttribute("width", "304");
+        x.setAttribute("height", "228");
+        x.setAttribute("alt", "The Pulpit Rock");
+        document.getElementById('saveForm').appendChild(x);
+
+
+    }
+
+    function insert(){
+
+            m=m+1;
+
+        var tag=' <div class="col-xs-12" id="saveForm'+m+'" style="color: #172d44">\n' +
+            '\n' +
+            '                    <input type="hidden" class="form-control" id="student_id'+m+'" data-realID="student_id">\n' +
+            '                    <div class=" col-xs-5   pull-right">\n' +
+            '                        <label for="name">نام\n' +
+            '                            <input type="text" class="form-control" id="name'+m+'" data-realID="name"></label>\n' +
+            '                    </div>\n' +
+            '                    <input type="hidden" class="form-control" id="type'+m+'" data-realID="type" value="1">\n' +
+            '\n' +
+            '                    <div class=" col-xs-3   pull-right" style="padding-top:20px;">\n' +
+            '                        <div class="btn btn-default" onclick="openKCFinder_singleFile(\'url\',select)">آپلود</div>\n' +
+            '                        <input type="hidden" id="url'+m+'" data-realID="url" value="mk.jpg">\n' +
+            '                    </div>\n' +
+            '                    <div class=" col-xs-3   pull-right">\n' +
+            '                        <label for="property">خصوصیات\n' +
+            '                            <input type="text" class="form-control" id="property'+m+'" data-realID="property"></label>\n' +
+            '                    </div>\n' +
+            '                    <input type="hidden" class="form-control" id="size'+m+'" data-realID="size" value="70">\n' +
+            '                    <input type="hidden" class="form-control" id="is_delete'+m+'" data-realID="is_delete" value="1">\n' +
+            '                    <input type="hidden" class="form-control" id="modified_by'+m+'" data-realID="modified_by" value="1">\n' +
+            '                    <input type="hidden" class="form-control" id="created_by'+m+'" data-realID="created_by" value="1">\n' +
+            '                    <div class="mdl-layout-spacer"></div>\n' +
+            '                    <div class="mdl-card__actions mdl-card--border">\n' +
+            '\n' +
+            '                        <input type="hidden" id="creationDate'+m+'" data-realID="creationDate">\n' +
+            '                    </div>\n' +
+            '\n' + '<div class=" col-xs-1   pull-right" style="margin-top: 30px;">' +
+            '<span class="glyphicon glyphicon-remove Pointer" onclick="delform(m)"></span>' +
+            '</div>'
+            '                </div>';
+
+
+            var x = document.createElement("div");
+            x.setAttribute("id",'list'+ m);
+
+
+            var name=document.getElementById('name'+z).value;
+            var property=document.getElementById('property'+z).value;
+
+
+            if( name !="" || property !=""){
+                document.getElementById('new').appendChild(x);
+                document.getElementById('list'+m).innerHTML=tag;
+                z=m;
+
+            }else{
+                alert('ابتدا فیلد ها را کامل کنید.')
+            }
+
+
+    }
+var jj=0;
+    var queryString = get_query_string_by_param('ID');
+    document.getElementById('student_id').value = queryString;
+    function setpart() {
+
+        //setForm('part', 'partitions_set', 'controller_robo/controller_partitions.php', console.log);
+
+        if (queryString == null) {
+            // setForm('saveForm', 'partitions_set', partitions_connection.controller_url);
+        } else {
+
+            if(jj != 0)
+                document.getElementById('student_id' + jj).value = queryString;
+
+            var saveForm="saveForm";
+
+
+                saveForm=saveForm + jj;
+
+                setForm(saveForm, 'files_set', files_connection.controller_url);
+
+                if(jj<=m) {
+                    m-=1;
+                    jj+=1;
+                    setTimeout(setpart, 100);
+
+                }
+
+
+        }
+
+    }
+
+
+    // —---— delete Grid row
+    function deleteIt(elem, act) {
+
+        swal({
+            title: 'حذف',
+            text: "آیا مطمئن هستید ؟",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'بله'
+        }).then(function () {
+
+            var id = grid_files.get_field_of_row(elem, 'ID');
+            ajax.sender_data_json_by_url_callback(files_connection.controller_url, {
+                act: act,
+                ID: id
+            }, console.log);
+            try {
+                setTimeout(function () {
+
+                    gridRefrsh(); //----> this func must write in grid page
+                }, 500);
+            } catch (e) {
+            }
+        })
+    }
+
+    function gridRefrsh() {
+        document.getElementById('PGrid').innerHTML = '';
+        files_connection.get_by_student_id_grid(id);
+    }
+    function delform(idm){
+      var  elements=document.getElementById('saveForm'+idm);
+      elements.parentNode.removeChild(elements);
+
+        m-=1;
+        if(z==1)
+        {
+            z="";
+        }else{
+            z=m;
+        }
+
+    }
+</script>
+
+<style>
+    .nav-pills > li {
+        float: right;
+    }
+</style>
+
+

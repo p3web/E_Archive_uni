@@ -1,0 +1,35 @@
+
+<div data-ng-app="" data-ng-init="title='build order'">
+    <div class="page-title">
+        <div class="title_left">
+            <h3 id="title">
+                <small id="tiny_title" data-ng-bind="title"></small>
+            </h3>
+        </div>
+
+        <div class="title_right">
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="row">
+    <div class="col-xs-12">
+
+    </div>
+</div>
+
+<script src="connection_robo/connection_student.js"></script>
+<script src="connection_robo_user/connection_robo/connection_profile.js"></script>
+<script src="connection_robo_user/connection_robo/connection_user.js"></script>
+<script>
+
+    var queryString = get_query_string_by_param('user_id');
+    var id = get_query_string_by_param('ID');
+    var grade_id = get_query_string_by_param('grade_id');
+    var field_of_study_id = get_query_string_by_param('field_of_study_id');
+    student_connection.delete_by_user_id(queryString);
+    user_connection.delete_user (queryString);
+    profile_connection.delete_profile_by_user_id(queryString);
+   window.location.href='#pages/studentlist'+'?ID='+id+'&grade_id='+grade_id+'&field_of_study_id='+field_of_study_id;
+</script>

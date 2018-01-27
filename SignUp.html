@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SignUp</title>
+    <script src="template/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="template/css/material.min.css">
+    <script src="template/js/material.min.js"></script>
+    <link rel="stylesheet" href="template/css/bootstrap.min.css">
+    <script src="template/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        body {
+            overflow: -moz-scrollbars-vertical;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+
+        .demo-layout-transparent {
+            background: url('./template/images/backlog.jpg') center / cover;
+        }
+
+        .demo-layout-transparent1 {
+            background: url('./template/images/12.png') center / cover;
+        }
+    </style>
+</head>
+<body class="demo-layout-transparent mdl-layout mdl-js-layout">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <div id="Logo"
+                 style="width: 144px;height: 144px;background-image:url('./template/images/logo.png'); border-radius: 5px;margin-top: 200px;float:left;margin-left:30%; ">
+
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div id="SignUp"
+                 style="width: 800px;height: 480px;float: left;margin-top: 100px;direction: rtl;padding: 10px"
+                 class="demo-layout-transparent1 mdl-layout mdl-js-layout">
+                <h4 class="mdl-dialog__content" style="color: #ffffff;">ثبت نام</h4>
+                <form action="#">
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="name">
+                        <label class="mdl-textfield__label" for="name"
+                               style="text-align: right;color: #ffffff;">
+                            نام:
+                        </label>
+                    </div>
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="Lastname">
+                        <label class="mdl-textfield__label" for="Lastname"
+                               style="text-align: right;color: #ffffff;">
+                            نام خانوادگی:</label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="password" id="password">
+                        <label class="mdl-textfield__label" for="password"
+                               style="text-align: right;color: #ffffff;">
+                            رمزعبور:</label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="password" id="conferm">
+                        <label class="mdl-textfield__label" for="password"
+                               style="text-align: right;color: #ffffff;">
+                            تکرار رمزعبور:</label>
+                    </div>
+
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="email" id="Email">
+                        <label class="mdl-textfield__label" for="Email"
+                               style="text-align: right;color: #ffffff;">
+                            کدملی:
+                        </label>
+                    </div>
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="Age">
+                        <label class="mdl-textfield__label" for="Age"
+                               style="text-align: right;color: #ffffff;">
+                            کدامنیتی:</label>
+
+                    </div>
+                    ​
+                    <picture>
+                        <source srcset="..." type="image/svg+xml">
+                        <img src="..." class="img-fluid img-thumbnail" alt="...">
+                    </picture>
+
+
+                    <br>
+                    <!-- Accent-colored raised button with ripple -->
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
+                            style="margin-top: 50px;border-radius: 20px;width: 200px;margin-right:60px ">
+                        ثبت نام
+                    </button>
+                </form>
+                <!-- Expandable Textfield -->
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

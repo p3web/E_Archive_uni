@@ -1,0 +1,99 @@
+{
+  "items":
+  [
+    {
+      "name": "",
+      "items":
+      [
+        {
+          "icon": "fa fa-users",
+          "name": "users",
+          "items":
+          [
+            {
+              "name": "list",
+              "link": "#pages/Users"
+            },
+            {
+              "name": "add",
+              "link": "#pages/AddEditUser"
+            }
+          ]
+        },
+        {
+          "icon": "fa fa-cart-plus",
+          "name": "Ph.D",
+          "items": [
+            {
+              "name": "Software",
+              "url": "#pages/selectyear?grade_id=1&field_of_study_id=1"
+            },
+            {
+              "name": "Electronic",
+              "link": "#pages/selectyear?grade_id=1&field_of_study_id=2"
+            }
+          ]
+        },
+        {
+          "icon": "fa fa-server",
+          "name": "Masters",
+          "items": [
+            {
+              "name": "Software",
+              "url": "#pages/selectyear?grade_id=2&field_of_study_id=1"
+            },
+            {
+              "name": "Electronic",
+              "link": "#pages/selectyear?grade_id=2&field_of_study_id=2"
+            }
+          ]
+        },
+        {
+          "icon": "fa fa-sort-amount-asc",
+          "name": "Bachelor",
+          "items": [
+            {
+              "name": "Software",
+              "url": "#pages/selectyear?grade_id=3&field_of_study_id=1"
+            },
+            {
+              "name": "Electronic",
+              "link": "#pages/selectyear?grade_id=3&field_of_study_id=2"
+            }
+          ]
+        },
+        {
+          "icon": "fa fa-sliders",
+          "name": "Assistant",
+          "items": [
+            {
+              "name": "Software",
+              "url": "#pages/selectyear?grade_id=4&field_of_study_id=1"
+            },
+            {
+              "name": "Electronic",
+              "link": "#pages/selectyear?grade_id=4&field_of_study_id=2"
+            }
+          ]
+        },
+        {
+        "icon": "fa fa-users",
+        "name": "setting",
+        "items":
+        [
+          {
+            "name": "list",
+            "link": "#pages/Users"
+          },
+          {
+            "name": "add",
+            "link": "#pages/AddEditUser"
+          }
+        ]
+      }
+
+
+      ]
+    }
+  ]
+}

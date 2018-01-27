@@ -1,0 +1,66 @@
+<div data-ng-app="" data-ng-init="title='build order'">
+    <div class="page-title">
+        <div class="title_left">
+            <h3 id="title">
+                <small id="tiny_title" data-ng-bind="title"></small>
+            </h3>
+        </div>
+
+        <div class="title_right">
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div id="PGrid">
+
+        </div>
+    </div>
+</div>
+
+<script src="connection_robo/connection_partitions.js"></script>
+<script>
+    partitions_connection.get_grid();
+
+    function Edit(elem, href) {
+        var id = grid_partitions.get_field_of_row(elem, 'ID');
+        window.location.href = '#pages/' + href + '?ID=' + id;
+    }
+    function file(elem, href) {
+        var id = grid_partitions.get_field_of_row(elem, 'ID');
+        window.location.href = '#pages/' + href + '?ID=' + id;
+    }
+    // —---— delete Grid row
+    function deleteIt(elem, act) {
+
+        swal({
+            title: 'حذف',
+            text: "آیا مطمئن هستید ؟",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'بله'
+        }).then(function () {
+
+            var id = grid_partitions.get_field_of_row(elem, 'ID');
+            ajax.sender_data_json_by_url_callback(partitions_connection.controller_url, {
+                act: act,
+                ID: id
+            }, console.log);
+            try {
+                setTimeout(function () {
+
+                    gridRefrsh(); //----> this func must write in grid page
+                }, 500);
+            } catch (e) {
+            }
+        })
+    }
+    function gridRefrsh() {
+        document.getElementById('PGrid').innerHTML = '';
+        partitions_connection.get_grid();
+    }
+</script>

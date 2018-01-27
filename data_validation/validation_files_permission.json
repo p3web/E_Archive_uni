@@ -1,0 +1,8 @@
+{ "":"" ,"user_id" : { "Type" : "int(11)" , "isNull" : "NO" , "Key" : "PRI" , "Default" : "" , "Extre" : ""}
+            ,"file_id" : { "Type" : "int(11)" , "isNull" : "NO" , "Key" : "PRI" , "Default" : "" , "Extre" : ""}
+            ,"read" : { "Type" : "tinyint(1)" , "isNull" : "NO" , "Key" : "" , "Default" : "1" , "Extre" : ""}
+            ,"write" : { "Type" : "tinyint(1)" , "isNull" : "NO" , "Key" : "" , "Default" : "1" , "Extre" : ""}
+            ,"delete" : { "Type" : "tinyint(1)" , "isNull" : "NO" , "Key" : "" , "Default" : "1" , "Extre" : ""}
+            ,"created_by" : { "Type" : "int(11)" , "isNull" : "YES" , "Key" : "" , "Default" : "" , "Extre" : ""}
+            ,"creationDate" : { "Type" : "timestamp" , "isNull" : "NO" , "Key" : "" , "Default" : "CURRENT_TIMESTAMP" , "Extre" : ""}
+            }

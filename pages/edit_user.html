@@ -1,0 +1,177 @@
+
+<style>
+    .demo-card-event.mdl-card {
+        width: auto;
+        height: 500px;
+        background: #ffffff0d;
+    }
+
+    .demo-card-event > .mdl-card__actions {
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .demo-card-event > .mdl-card__title {
+        align-items: flex-start;
+    }
+
+    .demo-card-event > .mdl-card__title > h4 {
+        margin-top: 0;
+    }
+
+    .demo-card-event > .mdl-card__actions {
+        display: flex;
+        box-sizing: border-box;
+        align-items: center;
+    }
+
+    .demo-card-event > .mdl-card__actions > .material-icons {
+        padding-right: 10px;
+    }
+
+
+</style>
+
+<div data-ng-app="" data-ng-init="title='build order'">
+    <div class="page-title">
+        <div class="title_left">
+            <h3 id="title">
+                <small id="tiny_title" data-ng-bind="title"></small>
+            </h3>
+        </div>
+
+        <div class="title_right">
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="row">
+    <div class="demo-card-event mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title mdl-card--expand" style="padding: 20px;font-size: large;">
+            <div class="col-xs-12 saveForm" id="saveForm">
+
+
+                <div class=" col-xs-6   pull-right">
+                    <label for="name">نام
+                        <input type="text" class="form-control" id="name" onkeyup="checkVerification(this.id , 'name')"></label>
+                    <input type="hidden" value="false" id="checkname">
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="lastname">نام خانوادگی
+                        <input type="text" class="form-control" id="lastname" onkeyup="checkVerification(this.id , 'name')" ></label>
+                    <input type="hidden" value="false" id="checklastname">
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="nik_name">نام مستعار
+                        <input type="text" class="form-control" id="nik_name"></label>
+
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="user_name">نام کاربری
+                        <input type="text" class="form-control" id="user_name" disabled ></label>
+
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="pssword">رمز عبور
+                        <input type="password" class="form-control" id="pssword" onkeyup="checkVerification(this.id , 'password')"></label>
+                    <input type="hidden" value="false" id="checkpssword">
+                </div>
+                <br><br>
+                <div class=" col-xs-6   pull-right">
+                    <label for="avatar">عکس کاربر
+                        <div class="btn btn-info" onclick="openKCFinder_singleFile('avatar')">آپلود</div>
+                        <input type="hidden" id="avatar" ></label>
+                </div>
+                <input type="hidden" id="last_password_failed">
+                <input type="hidden" id="count_password_failed">
+                <input type="hidden" id="last_change_password">
+                <input type="hidden" id="last_modified">
+
+                <div class=" col-xs-6   pull-right">
+                    <label for="created_by">
+                        <input type="hidden" class="form-control" id="created_by" value="1"></label>
+                </div>
+
+                <div class="mdl-layout-spacer"></div>
+                <div class="mdl-card__actions mdl-card--border">
+
+                    <input type="hidden" id="creationDate">
+                    <div class=" col-xs-12   pull-right">
+                        <div class="btn btn-primary" onclick="setpart()">ثبت</div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+            <div id="checkuser">
+                <input type="hidden"  id="user_name1" value="">
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<script src="connection_robo_user/connection_robo/connection_user.js"></script>
+<script src="plugin/DatePicker/js/date.js"></script>
+<script>
+
+ /*   var username="";
+   function checkuser() {
+        var flag = document.getElementById('user_name1').value;
+
+        if (flag == "" || flag == null) {
+            setForm('saveForm', 'user_edit_by_id', user_connection.controller_url);
+            next();
+        } else {
+            alert(' این نام کاربری قبلاً ثبت شده');
+            flag="";
+            document.getElementById('user_name1').value="";
+        }
+    }
+*/
+    function setpart() {
+
+        //setForm('part', 'partitions_set', 'controller_robo/controller_partitions.php', console.log);
+        var queryString = get_query_string_by_param('user_id');
+        if (queryString == null) {
+           // setForm('saveForm', 'user_set', user_connection.controller_url);
+        } else {
+
+            document.getElementById('last_password_failed').value = datenow();
+            document.getElementById('last_change_password').value = datenow();
+            document.getElementById('last_modified').value = datenow();
+            setForm('saveForm', 'user_edit_by_id', user_connection.controller_url);
+            next();
+           /* var u=document.getElementById('user_name').value;
+
+            if(u==username) {
+
+                setTimeout(checkuser, 3000);
+            }else{
+
+               user_connection.get_by_user_name(document.getElementById('user_name').value);
+                setTimeout(checkuser, 3000);
+            }*/
+        }
+
+    }
+
+   // GetTimeNow()
+    GetEditData('user_id', {act: 'user_get_by_id'}, user_connection.controller_url);
+
+  /*  function username1(){
+         username=document.getElementById('user_name').value;
+        alert(username);
+    }
+    setTimeout(username1, 2000);
+*/
+    function next() {
+        var name=get_query_string_by_param('user_id');
+        window.location.href='#pages/edit_profile' + '?user_id=' + name;
+
+    }
+
+</script>
+

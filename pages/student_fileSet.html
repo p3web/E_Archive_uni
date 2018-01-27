@@ -1,0 +1,84 @@
+<div data-ng-app="" data-ng-init="title='build order'">
+    <div class="page-title">
+        <div class="title_left">
+            <h3 id="title">
+                <small id="tiny_title" data-ng-bind="title"></small>
+            </h3>
+        </div>
+
+        <div class="title_right">
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="row">
+    <div class="col-xs-12 saveForm" id="part">
+        <div class=" col-xs-12   pull-right">
+            <label for="owner_id">فرستنده
+                <input type="text" class="form-control" id="owner_id"  ></label>
+        </div>
+        <div class=" col-xs-12   pull-right">
+            <label for="name">نام
+                <input type="text" class="form-control" id="name"  ></label>
+        </div>
+        <div class=" col-xs-12   pull-right">
+            <label for="type">نوع
+                <input type="text" class="form-control" id="type"  ></label>
+        </div>
+        <div class=" col-xs-12   pull-right">
+            <label for="parentdir">شاخه اصلی
+                <input type="text" class="form-control" id="parentdir"  ></label>
+        </div>
+        <div class=" col-xs-12   pull-right">
+            <label for="url">آدرس
+                <input type="text" class="form-control" id="url"  >
+            </label>
+        </div>
+        <div class=" col-xs-12   pull-right">
+            <label for="property">مشخصات
+                <input type="text" class="form-control" id="property"  >
+            </label>
+
+        </div>
+        <div class=" col-xs-12   pull-right">
+            <label for="lat">مختصات x
+                <input type="text" class="form-control" id="lat"  ></label>
+        </div>
+        <div class=" col-xs-12   pull-right">
+            <label for="lng">مختصات y
+                <input type="text" class="form-control" id="lng"  ></label>
+        </div>
+        <div class=" col-xs-12   pull-right">
+            <label for="size">اندازه
+                <input type="text" class="form-control" id="size"  ></label>
+        </div>
+        <div class=" col-xs-12   pull-right">
+            <label for="is_delete">آیا پاک شده است
+                <input type="text" class="form-control" id="is_delete"  ></label>
+        </div>
+        <div class=" col-xs-12   pull-right">
+            <label for="modified_by">ویرایشگر
+                <input type="text" class="form-control" id="modified_by"  >
+            </label>
+        </div>
+        <div class=" col-xs-12   pull-right">
+            <label for="created_by">نوشته به وسیله
+                <input type="text" class="form-control" id="created_by"  >
+            </label>
+
+        </div>
+        <div class=" col-xs-12   pull-right">
+            <div class="btn btn-primary" onclick="setpart()">ثبت</div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function setpart() {
+        setForm('part', 'files_set', 'controller_robo/controller_files.php', console.log);
+
+    }
+</script>
+

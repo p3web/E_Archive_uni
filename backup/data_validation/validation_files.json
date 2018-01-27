@@ -1,0 +1,15 @@
+{ "":"" ,"ID" : { "Type" : "int(11)" , "isNull" : "NO" , "Key" : "PRI" , "Default" : "" , "Extre" : "auto_increment"}
+            ,"owner_id" : { "Type" : "int(11)" , "isNull" : "YES" , "Key" : "" , "Default" : "" , "Extre" : ""}
+            ,"name" : { "Type" : "varchar(50)" , "isNull" : "NO" , "Key" : "" , "Default" : "" , "Extre" : ""}
+            ,"type" : { "Type" : "int(11)" , "isNull" : "YES" , "Key" : "" , "Default" : "" , "Extre" : ""}
+            ,"parentdir" : { "Type" : "int(11)" , "isNull" : "NO" , "Key" : "" , "Default" : "" , "Extre" : ""}
+            ,"url" : { "Type" : "varchar(255)" , "isNull" : "NO" , "Key" : "" , "Default" : "" , "Extre" : ""}
+            ,"property" : { "Type" : "varchar(255)" , "isNull" : "NO" , "Key" : "" , "Default" : "" , "Extre" : ""}
+            ,"lat" : { "Type" : "varchar(50)" , "isNull" : "NO" , "Key" : "" , "Default" : "" , "Extre" : ""}
+            ,"lng" : { "Type" : "varchar(50)" , "isNull" : "NO" , "Key" : "" , "Default" : "" , "Extre" : ""}
+            ,"size" : { "Type" : "int(11)" , "isNull" : "YES" , "Key" : "" , "Default" : "" , "Extre" : ""}
+            ,"is_delete" : { "Type" : "int(11)" , "isNull" : "NO" , "Key" : "" , "Default" : "" , "Extre" : ""}
+            ,"modified_by" : { "Type" : "int(11)" , "isNull" : "YES" , "Key" : "" , "Default" : "" , "Extre" : ""}
+            ,"created_by" : { "Type" : "int(11)" , "isNull" : "YES" , "Key" : "" , "Default" : "" , "Extre" : ""}
+            ,"creationDate" : { "Type" : "timestamp" , "isNull" : "YES" , "Key" : "" , "Default" : "CURRENT_TIMESTAMP" , "Extre" : ""}
+            }
