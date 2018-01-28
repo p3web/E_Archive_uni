@@ -28,12 +28,12 @@
 
     grade_connection.get_grid();
     function insert() {
-        window.location.href='#pages/setmenu';
+        window.location.href='#pages/setmenu?key=grade';
     }
 
     function Edit(elem, href) {
         var id = grid_grade.get_field_of_row(elem, 'ID');
-        window.location.href = '#pages/' + href + '?ID=' + id;
+        window.location.href = '#pages/' + href + '?grade_id=' + id+'&key=null';
     }
 
 

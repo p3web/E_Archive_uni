@@ -78,7 +78,7 @@ field_of_study_connection.get_grid_call_back = function (data) {
     grid_field_of_study.actions = [{
         name: 'Edit',
         ClassName: 'glyphicon glyphicon-edit',
-        attribute: [{name: 'onclick', value: "Edit(this,'setsubmenu')"}]
+        attribute: [{name: 'onclick', value: "Edit(this,'setmenu')"}]
     }, {
         name: 'delete',
         ClassName: 'glyphicon glyphicon-remove',

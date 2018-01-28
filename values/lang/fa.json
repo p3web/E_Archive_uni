@@ -384,5 +384,9 @@
   "studentset":"ثبت اطلاعات فردی",
   "software":"نرم افزار",
   "electronic":"الکترونیک",
-  "selectyear":"انتخاب سال ورودی"
+  "selectyear":"انتخاب سال ورودی",
+  "menulist":"لیست منو ها",
+  "setmenu":"تنظیمات منو ها",
+  "submenulist":"لیست زیر منو ها",
+  "menu_setting":"ساخت زیر شاخه ها"
 }

@@ -28,12 +28,12 @@
 
     field_of_study_connection.get_grid();
     function insert() {
-        window.location.href='#pages/setsubmenu';
+        window.location.href='#pages/setmenu?key=field_of_study';
     }
 
     function Edit(elem, href) {
         var id = grid_field_of_study.get_field_of_row(elem, 'ID');
-        window.location.href = '#pages/' + href + '?ID=' + id;
+        window.location.href = '#pages/' + href + '?field_of_study_id=' + id+'&key=null';
     }
 
 

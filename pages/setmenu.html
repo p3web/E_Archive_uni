@@ -1,8 +1,8 @@
 <style>
     .demo-card-event.mdl-card {
-        width: 700px;
-        height: 300px;
-        background: rgba(94, 94, 94, 0.32);
+        width: 99%;
+        height: 400px;
+        background: #d4d4d43d;
     }
 
     .demo-card-event > .mdl-card__actions {
@@ -45,12 +45,13 @@
 <div class="clearfix"></div>
 
 <div class="row">
+
     <div class="demo-card-event mdl-card mdl-shadow--2dp">
-        <div class="mdl-card__title mdl-card--expand" style="padding: 20px;font-size: large;">
+        <div class="mdl-card__title mdl-card--expand" id="frm1" style="padding: 20px;font-size: large;display: none;">
             <div class="col-xs-12 saveForm" id="saveForm">
 
                 <div class=" col-xs-6   pull-right">
-                    <label for="name">سال ورودی
+                    <label for="name">نام منو
                         <input type="text" class="form-control" id="name"></label>
                 </div>
                 <div class=" col-xs-6   pull-right">
@@ -71,30 +72,104 @@
 
             </div>
         </div>
+        <div class="mdl-card__title mdl-card--expand" id="frm2" style="padding: 20px;font-size: large;display: none;">
+            <div class="col-xs-12 saveForm" id="saveForm1" data-realID="saveForm">
 
+                <div class=" col-xs-6   pull-right">
+                    <label for="name1">نام زیر منو
+                        <input type="text" class="form-control" id="name1" data-realID="name"></label>
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="created_by1">
+                        <input type="hidden" class="form-control" id="created_by1" data-realID="created_by"
+                               value="1"></label>
+                </div>
+                <div class="mdl-layout-spacer"></div>
+                <div class="mdl-card__actions mdl-card--border">
+
+                    <input type="hidden" id="creationDate1" data-realID="creationDate">
+                    <div class=" col-xs-12   pull-right">
+                        <div class="btn btn-primary" onclick="setpart1()">ثبت</div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
     </div>
 
 </div>
-<script src="connection_robo/connection_year.js"></script>
+<script src="connection_robo/connection_grade.js"></script>
+<script src="connection_robo/connection_field_of_study.js"></script>
 <script>
 
+    var grade = document.getElementById('frm1');
+    var field = document.getElementById('frm2');
+
+    var grade_id1 = get_query_string_by_param('grade_id');
+    var field_of_study_id1 = get_query_string_by_param('field_of_study_id');
+    var key=get_query_string_by_param('key');
+
+    if(key=='grade'){
+        grade1();
+    }else if(key=='field_of_study'){
+        field1();
+    }
+
+    function grade1() {
+
+
+        grade.style.display = 'inherit';
+
+
+    }
+
+    function field1() {
+
+
+        field.style.display = 'inherit';
+
+    }
 
     function setpart() {
 
-        //setForm('part', 'partitions_set', 'controller_robo/controller_partitions.php', console.log);
-        var queryString = get_query_string_by_param('ID');
-        if (queryString == null) {
-            setForm('saveForm', 'year_set', year_connection.controller_url);
+if(field_of_study_id1 !=null)
+{
+    setpart1();
+}else if (grade_id1 == null) {
+            setForm('saveForm', 'grade_set', grade_connection.controller_url);
         } else {
 
-            setForm('saveForm', 'year_edit_by_ID', year_connection.controller_url);
+            setForm('saveForm', 'grade_edit_by_ID', grade_connection.controller_url);
         }
 
     }
 
+    if (grade_id1 != null) {
+        GetEditData('grade_id', {act: 'grade_get_by_ID'}, grade_connection.controller_url);
 
-    GetEditData('ID', {act: 'year_get_by_ID'}, year_connection.controller_url);
+        grade.style.display = 'inherit';
+    }
 
+    function setpart1() {
+
+
+        if (field_of_study_id1 == null) {
+            setForm('saveForm1', 'field_of_study_set', field_of_study_connection.controller_url);
+        } else {
+
+            setForm('saveForm', 'field_of_study_edit_by_ID', field_of_study_connection.controller_url);
+        }
+
+    }
+
+    if (field_of_study_id1 != null) {
+
+        GetEditData('field_of_study_id', {act: 'field_of_study_get_by_ID'}, field_of_study_connection.controller_url);
+        grade.style.display = 'inherit';
+    }
 
 </script>
 

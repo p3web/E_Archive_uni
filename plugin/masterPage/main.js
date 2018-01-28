@@ -157,6 +157,13 @@ var nm;
                         name: menulist[c].name,
                         link: link
                     });
+                }else if(menulist[c].name=='تنظیمات منوها')
+                {
+                    link = '#pages/menu_setting';
+                    TempJson['items'].push({
+                        name: menulist[c].name,
+                        link: link
+                    });
                 }else {
                     link = '#pages/selectyear?grade_id=' + grade_id[i].ID + '&field_of_study_id=' + menulist[c].field_of_study_id;
                     TempJson['items'].push({
