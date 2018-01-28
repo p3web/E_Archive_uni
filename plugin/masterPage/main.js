@@ -133,21 +133,38 @@ function createmenu() {
     var JsonArray = [{items: [{name: '', items: []}]}];
     var TempJson, link;
 
-
+var nm;
     for (var i = 0; i < grade_id.length; i++) {
-
+           nm=' '+ grade_id[i].name;
         TempJson = {
             icon: 'glyphicon glyphicon-education',
-            name: grade_id[i].name
+            name: nm
         };
         TempJson['items'] = [];
         for (var c = 0; c < menulist.length; c++) {
             if (grade_id[i].ID == menulist[c].grade_id) {
-                link = '#pages/selectyear?grade_id=' + grade_id[i].ID + '&field_of_study_id=' + menulist[c].field_of_study_id;
-                TempJson['items'].push({
-                    name: menulist[c].name,
-                    link: link
-                });
+
+                if(menulist[c].name=='لیست منوها')
+                {
+                    link = '#pages/menulist';
+                    TempJson['items'].push({
+                        name: menulist[c].name,
+                        link: link
+                    });
+                }else if(menulist[c].name=='لیست زیر منوها'){
+                    link = '#pages/submenulist';
+                    TempJson['items'].push({
+                        name: menulist[c].name,
+                        link: link
+                    });
+                }else {
+                    link = '#pages/selectyear?grade_id=' + grade_id[i].ID + '&field_of_study_id=' + menulist[c].field_of_study_id;
+                    TempJson['items'].push({
+                        name: menulist[c].name,
+                        link: link
+                    });
+                }
+
             }
         }
         JsonArray[0].items[0].items.push(TempJson);

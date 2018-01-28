@@ -66,16 +66,25 @@ field_of_study_connection.get_grid_call_back = function (data) {
     grid_field_of_study = new PSCO_grid('grid_field_of_study');
 
     grid_field_of_study.cols = [
-        {name: 'ID', hidden: false, type: 'text'}, {name: 'name', hidden: false, type: 'text'}, {
+        {name: 'ID', hidden: true, type: 'text'}, {name: 'name', hidden: false, type: 'text'}, {
             name: 'created_by',
-            hidden: false,
+            hidden: true,
             type: 'text'
-        }, {name: 'creationDate', hidden: false, type: 'text'}];
+        }, {name: 'creationDate', hidden: true, type: 'text'}];
 
-    grid_field_of_study.RightToLeft = false;
+   // grid_field_of_study.RightToLeft = false;
 
     // grid_field_of_study.actions = [{name: 'delete', ClassName: 'glyphicon glyphicon-remove', attribute: {onclick: 'deleteIt()'}}];
-
+    grid_field_of_study.actions = [{
+        name: 'Edit',
+        ClassName: 'glyphicon glyphicon-edit',
+        attribute: [{name: 'onclick', value: "Edit(this,'setsubmenu')"}]
+    }, {
+        name: 'delete',
+        ClassName: 'glyphicon glyphicon-remove',
+        attribute: [{name: 'onclick', value: "deleteIt(this , 'field_of_study_delete')"}]
+    }
+    ];
     grid_field_of_study.data = data;
 
     grid_field_of_study.render();
