@@ -7,8 +7,6 @@ var grade_connection = {
 
 grade_connection.get_call_back = function (data) {
     //TODO: set code after the server response
-
-
     var tag = "";
     for (var i = 0; i < data.length; i++) {
         tag += '<option value="' + data[i].name + '"style="color: #000000;">' + data[i].name + '</option>';
@@ -79,11 +77,11 @@ grade_connection.get_grid_call_back = function (data) {
     grid_grade.actions = [{
         name: 'Edit',
         ClassName: 'glyphicon glyphicon-edit',
-        attribute: [{name: 'onclick', value: "Edit(this,'setmenu')"}]
+        attribute: [{name: 'onclick', value: "Edit(this,'setyear')"}]
     }, {
         name: 'delete',
         ClassName: 'glyphicon glyphicon-remove',
-        attribute: [{name: 'onclick', value: "deleteIt(this , 'grade_delete')"}]
+        attribute: [{name: 'onclick', value: "deleteIt(this , 'menu_v_list_delete')"}]
     }
     ];
     grid_grade.data = data;
@@ -121,7 +119,13 @@ grade_connection.get_by_ID_grid = function (ID) {
 };
 grade_connection.get_by_name_call_back = function (data) {
     //TODO: set code after the server response
+    try{
     document.getElementById('grade_id').value = data[0].ID;
+    }catch (e){}
+    try{
+        gradeid='';
+    gradeid=data[0].ID;
+    }catch (e){}
     g = true;
     if (grade_connection.debug_mode) {
         console.log(data);

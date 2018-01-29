@@ -46,6 +46,7 @@ class controller_main_function
      */
     public static function send_result($res)
     {
+
         echo json_encode($res);
         exit;
 

@@ -85,7 +85,7 @@ student_list_connection.get_grid_call_back = function (data) {
     }, {
         name: 'Edit',
         ClassName: 'glyphicon glyphicon-edit',
-        attribute: [{name: 'onclick', value: "Edit(this,'edit_student')"}]
+        attribute: [{name: 'onclick', value: "Edit(this,'studentedit')"}]
     }, {
         name: 'delete_user',
         ClassName: 'glyphicon glyphicon-remove',

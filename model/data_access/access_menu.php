@@ -23,14 +23,17 @@
                     } else {
                         return false;
                     }
-                }public static function get_menu_by_grade_id($grade_id) {
+                }
+                public static function get_menu_by_grade_id($grade_id) {
 
             $data = data::selects("`menu`", "`grade_id` = '$grade_id'");
-                    if (count($data[0]) != 0) {
-                        return $data;
-                    } else {
-                        return false;
-                    }
+
+                       if (count($data[0]) != 0) {
+                           return $data;
+                       } else {
+                           return false;
+                       }
+
                 }public static function get_menu_by_field_of_study_id($field_of_study_id) {
 
             $data = data::selects("`menu`", "`field_of_study_id` = '$field_of_study_id'");

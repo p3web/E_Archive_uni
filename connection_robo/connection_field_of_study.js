@@ -7,17 +7,58 @@ var field_of_study_connection = {
 
 field_of_study_connection.get_call_back = function (data) {
     //TODO: set code after the server response
+    var ta = '', tagg = '';
+    try {
+        for (var i = 1; i <= data.length; i++) {
+            ta += '<option value="' + i + '"style="color: #000000;" >' + i + '</option>';
+        }
+    } catch (e) {
+    }
+    try {
+        document.getElementById('num').innerHTML = ta;
+        inumber = data.length;
+    } catch (e) {
+    }
     var tag = "";
-    for (var i = 0; i < data.length; i++) {
-        tag += '<option value="' + data[i].name + '"style="color: #000000;" >' + data[i].name + '</option>';
+    try {
+        for (var i = 0; i < data.length; i++) {
+            tag += '<option value="' + data[i].name + '"style="color: #000000;" >' + data[i].name + '</option>';
+        }
+
+
+        document.getElementById('study').innerHTML = tag;
+
+
+        if (flag) {
+
+            FlagObj.push('S');
+
+        }
+    } catch (e) {
+    }
+
+    try {
+    var arr=[];
+        for (var i = 0; i <data.length ; i++) {
+            for (var j = 0; j <field_array.length; j++) {
+                if (data[i].ID == field_array[j]) {
+
+                         data.splice(i,1);
+
+                }
+            }
+        }
+
+        for (var i = 0; i < data.length; i++) {
+            tagg += '<option value="' + data[i].name + '"style="color: #000000;" >' + data[i].name + '</option>';
+        }
+        document.getElementById('of_study').innerHTML = tagg;
+
+
+    } catch (e) {
     }
 
 
-            document.getElementById('study').innerHTML = tag;
-
-    if(flag){
-        FlagObj.push('S');
-    }
     if (field_of_study_connection.debug_mode) {
         console.log(data);
     }
@@ -72,7 +113,7 @@ field_of_study_connection.get_grid_call_back = function (data) {
             type: 'text'
         }, {name: 'creationDate', hidden: true, type: 'text'}];
 
-   // grid_field_of_study.RightToLeft = false;
+    // grid_field_of_study.RightToLeft = false;
 
     // grid_field_of_study.actions = [{name: 'delete', ClassName: 'glyphicon glyphicon-remove', attribute: {onclick: 'deleteIt()'}}];
     grid_field_of_study.actions = [{
@@ -97,8 +138,21 @@ field_of_study_connection.get_grid = function () {
 //________________get functions
 field_of_study_connection.get_by_ID_call_back = function (data) {
     //TODO: set code after the server response
-    var id=data[0].name;
-    document.getElementById('field_of_study_id').value=id;
+    try {
+
+        var id = data[0].name;
+        tags = '<input value="' + data[0].name + '"style="color: #000000;" disabled>';
+
+        document.getElementById('dis1' + xx).innerHTML = tags;
+        xx += 1;
+    } catch (e) {
+    }
+    try {
+        var id = data[0].name;
+        document.getElementById('field_of_study_id').value = id;
+    } catch (e) {
+    }
+
     if (field_of_study_connection.debug_mode) {
         console.log(data);
     }
@@ -120,8 +174,8 @@ field_of_study_connection.get_by_ID_grid = function (ID) {
 };
 field_of_study_connection.get_by_name_call_back = function (data) {
     //TODO: set code after the server response
-    document.getElementById('field_of_study_id').value=data[0].ID;
-    f=true;
+    document.getElementById('field_of_study_id').value = data[0].ID;
+    f = true;
     if (field_of_study_connection.debug_mode) {
         console.log(data);
     }

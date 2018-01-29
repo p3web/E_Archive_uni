@@ -1,0 +1,451 @@
+<link rel="stylesheet" href="plugin/DatePicker/css/datepicker.css">
+<style>
+    .demo-card-event.mdl-card {
+        width: auto;
+        height: 500px;
+        background: #ffffff0d;
+    }
+
+    .demo-card-event > .mdl-card__actions {
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .demo-card-event > .mdl-card__title {
+        align-items: flex-start;
+    }
+
+    .demo-card-event > .mdl-card__title > h4 {
+        margin-top: 0;
+    }
+
+    .demo-card-event > .mdl-card__actions {
+        display: flex;
+        box-sizing: border-box;
+        align-items: center;
+    }
+
+    .demo-card-event > .mdl-card__actions > .material-icons {
+        padding-right: 10px;
+    }
+
+
+</style>
+
+<div data-ng-app="" data-ng-init="title='build order'">
+    <div class="page-title">
+        <div class="title_left">
+            <h3 id="title">
+                <small id="tiny_title" data-ng-bind="title"></small>
+            </h3>
+        </div>
+
+        <div class="title_right">
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="row">
+    <div class="demo-card-event mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title mdl-card--expand" style="padding: 20px;font-size: large;">
+            <div class="col-xs-12" id="saveForm">
+
+                <div class=" col-xs-6   pull-right">
+                    <label for="name">نام
+                        <input type="text" class="form-control" onkeyup="checkVerification(this.id , 'name')" id="name"></label>
+                    <input type="hidden" value="false" id="checkname">
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="lastname">نام خانوادگی
+                        <input type="text" class="form-control" onkeyup="checkVerification(this.id , 'name')"
+                               id="lastname"></label>
+                    <input type="hidden" value="false" id="checklastname">
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="nik_name">نام مستعار
+                        <input type="text" class="form-control" id="nik_name"></label>
+
+                </div>
+
+                <input type="hidden" class="form-control" id="user_name">
+
+
+                <input type="hidden" class="form-control" id="pssword">
+                <div class=" col-xs-6   pull-right" style="margin-top: 20px;">
+                    <label for="avatar">عکس کاربر
+                        <div class="btn btn-default" onclick="openKCFinder_singleFile('avatar')">آپلود</div>
+                        <input type="hidden" id="avatar"></label>
+                </div>
+                <input type="hidden" id="last_password_failed">
+                <input type="hidden" id="count_password_failed" value="0">
+                <input type="hidden" id="last_change_password">
+                <input type="hidden" id="last_modified">
+
+                <div class=" col-xs-6   pull-right">
+                    <label for="created_by">
+                        <input type="hidden" class="form-control" id="created_by" value="1"></label>
+                </div>
+
+                <div class="mdl-layout-spacer"></div>
+                <div class="mdl-card__actions mdl-card--border">
+
+                    <input type="hidden" id="creationDate">
+
+
+                </div>
+
+            </div>
+            <div id="checkuser">
+                <input type="hidden" id="user_name1" value="">
+                <input type="hidden" id="us_id" value="">
+            </div>
+            <br>
+            <hr class="hrstyle">
+            <div class="col-xs-12" id="saveForm1">
+
+                <div class="">
+                    <label for="user_id">
+                        <input type="hidden" class="form-control" id="user_id"></label>
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="age">سن
+                        <input type="text" class="form-control" id="age"
+                               onkeyup="checkVerification(this.id , 'age')"></label>
+                    <input type="hidden" value="false" id="checkage">
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="sex">جنسیت
+
+                        <input list="study1" id="sex" class="form-control" value="مرد">
+                        <datalist id="study1" style="color: #000000;">
+                            <option value="مرد" style="color: #000000;">مرد</option>
+                            <option value="زن" style="color: #000000;">زن</option>
+                        </datalist>
+                    </label>
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="father_name">نام پدر
+                        <input type="text" class="form-control" id="father_name"
+                               onkeyup="checkVerification(this.id , 'name')"></label>
+                    <input type="hidden" value="false" id="checkfather_name">
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="mather_name">نام مادر
+                        <input type="text" class="form-control" id="mather_name"
+                               onkeyup="checkVerification(this.id , 'name')"></label>
+                    <input type="hidden" value="false" id="checkmather_name">
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="is_single">وضعیت تاهل
+
+                        <input list="single" id="is_single" class="form-control">
+                        <datalist id="single" style="color: #000000;">
+                            <option value="مجرد" style="color: #000000;">مجرد</option>
+                            <option value="متاهل" style="color: #000000;">متاهل</option>
+                        </datalist>
+                    </label>
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="national_code">کد ملی
+                        <input type="text" class="form-control" id="national_code"
+                               onkeyup="checkVerification(this.id , 'NationalCode')"></label>
+                    <input type="hidden" value="false" id="checknational_code">
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="email">ایمیل
+                        <input type="email" class="form-control" id="email"
+                               onkeyup="checkVerification(this.id , 'email')"></label>
+                    <input type="hidden" value="false" id="checkemail">
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="tel">تلفن
+                        <input type="text" class="form-control" id="tel"
+                               onkeyup="checkVerification(this.id , 'homePhone')"></label>
+                    <input type="hidden" value="false" id="checktel">
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="mobile">تلفن همراه
+                        <input type="text" class="form-control" id="mobile"
+                               onkeyup="checkVerification(this.id , 'mobile')"></label>
+                    <input type="hidden" value="false" id="checkmobile">
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="fax">فکس
+                        <input type="text" class="form-control" id="fax"
+                               onkeyup="checkVerification(this.id , 'homePhone')"></label>
+                    <input type="hidden" value="false" id="checkfax">
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="address">آدرس
+                        <input type="text" class="form-control" id="address"
+                               onkeyup="checkVerification(this.id , 'address')"></label>
+                    <input type="hidden" value="false" id="checkaddress">
+                </div>
+
+                <input type="hidden" id="last_modified1" data-realID="last_modified">
+
+                <div class=" col-xs-6   pull-right">
+                    <label for="created_by">
+                        <input type="hidden" class="form-control" id="created_by1" data-realID="created_by"
+                               value="1"></label>
+                </div>
+
+                <div class="mdl-layout-spacer"></div>
+
+
+            </div>
+            <br>
+            <br>
+            <hr class="hrstyle" style="margin-top: 420px">
+
+            <div class="col-xs-12 saveForm" id="saveForm2">
+
+                <div class="">
+                    <label for="user_id">
+                        <input type="hidden" class="form-control" id="user_id1" data-realID="user_id"></label>
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="student_id">شماره دانشجویی
+                        <input type="text" class="form-control" id="student_id" data-length="9"
+                               onkeyup="checkVerification(this.id , 'numeral_length')"></label>
+                    <input type="hidden" value="false" id="checkstudent_id">
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="grade_id">مقطع تحصیلی
+
+                        <input list="grade" id="grade_id" class="form-control">
+                        <datalist id="grade" style="color: #000000;">
+
+
+                        </datalist>
+                    </label>
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="year_id">سال ورودی
+
+                        <input list="year" id="year_id" class="form-control">
+                        <datalist id="year" style="color: #000000;">
+
+
+                        </datalist>
+                    </label>
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="field_of_study_id">رشته
+                        <input list="study" id="field_of_study_id" class="form-control">
+                        <datalist id="study" style="color: #000000;">
+
+
+                        </datalist>
+                    </label>
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="transfer_unit">تعداد واحد انتقالی
+                        <input type="text" class="form-control" id="transfer_unit"></label>
+
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="accept_unit">تعداد واحد قبولی
+                        <input type="text" class="form-control" id="accept_unit"></label>
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="term_graduate">ترم فراغت
+                        <input type="text" class="form-control" id="term_graduate"></label>
+
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="average">معدل
+                        <input type="text" class="form-control" id="average"></label>
+
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="system_type">توضیحات
+                        <input type="text" class="form-control" id="system_type"
+                               onkeyup="checkVerification(this.id , 'description')"></label>
+                    <input type="hidden" value="false" id="checksystem_type">
+                </div>
+                <div class=" col-xs-6   pull-right">
+                    <label for="date_graduate_">تاریخ فراغت
+                        <input type="text" class="form-control" id="date_graduate_"></label>
+                    <input type="hidden" id="date_graduate"/>
+                </div>
+
+                <div class=" col-xs-6   pull-right">
+                    <label for="created_by">
+                        <input type="hidden" class="form-control" id="created_by2" data-realID="created_by"
+                               value="1"></label>
+                </div>
+
+                <div class="mdl-layout-spacer"></div>
+                <div class="mdl-card__actions mdl-card--border">
+
+                    <input type="hidden" id="creationDate2" data-realID="creationDate">
+
+
+                </div>
+
+            </div>
+
+            <div class=" col-xs-12   pull-right">
+                <div class="btn btn-primary" onclick="setpart()">ثبت</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<script src="connection_robo_user/connection_robo/connection_user.js"></script>
+<script src="connection_robo_user/connection_robo/connection_profile.js"></script>
+<script src="connection_robo/connection_student.js"></script>
+<script src="connection_robo/connection_field_of_study.js"></script>
+<script src="connection_robo/connection_grade.js"></script>
+<script src="connection_robo/connection_year.js"></script>
+
+
+<!--Date-->
+<script src="plugin/DatePicker/js/jalali.js"></script>
+<script src="plugin/DatePicker/js/calendar.js"></script>
+<script src="plugin/DatePicker/js/calendar-setup.js"></script>
+<script src="plugin/DatePicker/js/calendar-fa.js"></script>
+<script src="plugin/DatePicker/js/date.js"></script>
+<script>
+    var yeid = '';
+    var grid = '';
+    var fid = '';
+    var f=false;
+    var g=false;
+    var y=false;
+    var user_id = get_query_string_by_param('user_id');
+    var id = get_query_string_by_param('ID');
+    var grade_id = get_query_string_by_param('grade_id');
+    var field_of_study_id = get_query_string_by_param('field_of_study_id');
+    var flag = false;
+    field_of_study_connection.get_by_ID(field_of_study_id);
+    field_of_study_connection.get();
+    grade_connection.get_by_ID(grade_id);
+    grade_connection.get();
+    year_connection.get_by_ID(id);
+    year_connection.get();
+
+    var usid = "";
+
+    function checkuser() {
+
+        var flags = document.getElementById('user_name1').value;
+
+        if (flags == "" || flags == null) {
+            document.getElementById('user_name').value = document.getElementById('student_id').value;
+            document.getElementById('pssword').value = document.getElementById('national_code').value;
+            setForm('saveForm', 'user_set', user_connection.controller_url, checkSet);
+        } else {
+            alert(' این شماره دانشجویی قبلاً ثبت شده');
+            flags = "";
+            document.getElementById('user_name1').value = "";
+        }
+    }
+
+
+    Calendar.setup({
+        inputField: "date_graduate_",
+        ifFormat: "%y/%m/%d",
+        dateType: "jalali",
+        weekNumbers: false
+    });
+
+    function checkSet(data) {
+
+        if (data.data != false) {
+            var si = document.getElementById('is_single').value;
+            if (si == 'مجرد') {
+                document.getElementById('is_single').value = 1;
+            } else if (si == 'متاهل') {
+                document.getElementById('is_single').value = 2;
+            }
+            usid = data.data;
+
+            document.getElementById('user_id').value = usid;
+            setForm('saveForm1', 'profile_set', profile_connection.controller_url, checkSetpro);
+        }
+    }
+
+    function checkSetpro(data) {
+
+        if (data.data != false) {
+            document.getElementById('user_id1').value = usid;
+            yeid = document.getElementById('year_id').value;
+            grid = document.getElementById('grade_id').value;
+            fid = document.getElementById('field_of_study_id').value;
+            year_connection.get_by_name(yeid);
+            field_of_study_connection.get_by_name(fid);
+            grade_connection.get_by_name(grid);
+            setstu();
+
+        }
+    }
+
+    function setstu(){
+
+        if(f==true && y== true && g==true){
+            setForm('saveForm2', 'student_set', student_connection.controller_url,checkSetstu);
+        }else{
+            setTimeout(setstu,100);
+        }
+
+    }
+    function checkSetstu(data) {
+
+        if (data.data == true)
+            next();
+    }
+
+    function setpart() {
+
+        //setForm('part', 'partitions_set', 'controller_robo/controller_partitions.php', console.log);
+
+        document.getElementById('last_password_failed').value = datenow();
+        document.getElementById('last_change_password').value = datenow();
+        document.getElementById('last_modified').value = datenow();
+        document.getElementById('last_modified1').value = datenow();
+        dt();
+        var stid = document.getElementById('student_id').value;
+        user_connection.get_by_user_name(stid.toString());
+        setTimeout(checkuser, 3000);
+
+
+    }
+
+    function dt() {
+        var dt = document.getElementById('date_graduate_').value;
+        var y = dt.slice(0, 2);
+        var m = dt.slice(3, 5);
+        var d = dt.slice(6, 8);
+        y = parseInt(y) + 1300;
+        dt = y + '/' + m + '/' + d;
+        document.getElementById('date_graduate').value = GetTmeStamp(dt);
+
+        // miladi = miladitojalali(y,m,d);
+
+        // dt=miladi[0]+'-'+miladi[1]+'-'+miladi[2]+' '+'00:00:00';
+        return dt;
+    }
+
+    //GetEditData('ID', {act: 'user_get_by_ID'}, user_connection.controller_url);
+
+    function next() {
+        var name = document.getElementById('user_name').value;
+        window.location.href = '#pages/studentlist' + '?ID=' + id + '&grade_id=' + grade_id + '&field_of_study_id=' + field_of_study_id;
+
+    }
+
+    var a = document.getElementById('student_id');
+    a.addEventListener('keypress', function (e) {
+
+        if (e.keyCode == 32)
+            e.preventDefault();
+    })
+
+
+</script>
+

@@ -45,7 +45,7 @@
 
     function Edit(elem, href) {
         var id = grid_student_list.get_field_of_row(elem, 'user_id');
-        window.location.href = '#pages/' + href + '?user_id=' + id;
+        window.location.href = '#pages/' + href + '?user_id=' + id+'&ID='+id+'&grade_id='+grade_id1+'&field_of_study_id='+field_of_study_id1;
     }
     function file(elem, href) {
         var id = grid_student_list.get_field_of_row(elem, 'ID');
