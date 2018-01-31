@@ -1,4 +1,4 @@
-var ajax = {url: "../jsondataout.php", data: {}};
+var ajax = {url: "controller_robo/controller_menu.php", data: {}};
 ajax.get_data = function (e, a) {
     if (void 0 == a || null == a)switch (e.act) {
         case"login":
@@ -64,7 +64,7 @@ ajax.get_data = function (e, a) {
     $.getJSON(a, function (a) {
         ajax.data[e] = a
     })
-}, ajax.sender_data_callback = function (e, a) {
+}, ajax.sender_data_callback = function ( u,e, a) {
     var o = new Date, s = this.url + "?killcatch=" + o.getMilliseconds() + "0" + o.getSeconds(), r = {};
     if (null != e) {
         var t = Object.keys(e);
@@ -91,7 +91,9 @@ ajax.get_data = function (e, a) {
             message.show("AJAX error", "error", "error")
         }
     })
-}, ajax.sender_data_json_by_url_callback = function (e, a, o, s) {
+};
+
+    ajax.sender_data_json_by_url_callback = function (e, a, o, s) {
     var r = new Date;
     e = e + "?killcatch=" + r.getMilliseconds() + "0" + r.getSeconds(), (null == s || void 0 == s) && (s = "GET"), $.ajax({
         url: e,

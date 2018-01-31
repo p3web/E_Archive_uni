@@ -7,16 +7,17 @@ var field_of_study_connection = {
 
 field_of_study_connection.get_call_back = function (data) {
     //TODO: set code after the server response
-    var ta = '', tagg = '';
+    var  tagg = '';
     try {
-        for (var i = 1; i <= data.length; i++) {
-            ta += '<option value="' + i + '"style="color: #000000;" >' + i + '</option>';
+        for (var i = 0; i < data.length; i++) {
+            tagg += '<br><label class="form-check-label" for="' + data[i].ID + '"><input id="' + data[i].ID + '" type="checkbox" class="form-check-input"  value="' + data[i].ID + '" >     ' + data[i].name + '    </label><br>';
         }
-    } catch (e) {
-    }
-    try {
-        document.getElementById('num').innerHTML = ta;
-        inumber = data.length;
+
+
+        document.getElementById('newlist').innerHTML = tagg;
+
+
+
     } catch (e) {
     }
     var tag = "";
@@ -27,36 +28,20 @@ field_of_study_connection.get_call_back = function (data) {
 
 
         document.getElementById('study').innerHTML = tag;
-
-
-        if (flag) {
-
-            FlagObj.push('S');
-
-        }
     } catch (e) {
     }
+try {
+        flag=true;
+    if (flag) {
 
-    try {
-    var arr=[];
-        for (var i = 0; i <data.length ; i++) {
-            for (var j = 0; j <field_array.length; j++) {
-                if (data[i].ID == field_array[j]) {
+        FlagObj.push('S');
 
-                         data.splice(i,1);
-
-                }
-            }
-        }
-
-        for (var i = 0; i < data.length; i++) {
-            tagg += '<option value="' + data[i].name + '"style="color: #000000;" >' + data[i].name + '</option>';
-        }
-        document.getElementById('of_study').innerHTML = tagg;
-
-
-    } catch (e) {
     }
+}catch (e) {
+}
+
+
+
 
 
     if (field_of_study_connection.debug_mode) {

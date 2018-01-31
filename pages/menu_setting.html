@@ -23,42 +23,28 @@
              background-color: #ffffff0d;padding: 20px;margin-right: 40px;">
 
             <div class=" col-xs-6   pull-right">
-                <label for="grade_name"> انتخاب منو
-                    <input list="grade" id="grade_name" class="form-control" onchange="run();">
-                    <datalist id="grade" style="color: #000000;">
+                <label for="grade"> انتخاب منو
+
+                    <select id="grade" class="form-control" style="color: #000000;" onchange="run();">
 
 
-                    </datalist>
+                    </select>
 
                 </label>
             </div>
-            <div id="new">
+
+             <div class=" col-xs-6   pull-right input-group-text" id="list">
+
 
             </div>
             <br>
-            <div class=" col-xs-6   pull-right" id="dis">
-                <label>زیر منو ها:</label>
-
-            </div>
-            <br>
-            <hr>
-            <br>
-            <div class="col-xs-12" id="saveForm" style="color: #172d44">
-
-
-                <div class="mdl-layout-spacer"></div>
-                <div class="mdl-card__actions mdl-card--border">
-
-                    <input type="hidden" id="creationDate">
-
-
-                </div>
-
-            </div>
-            <div class=" col-xs-12   pull-right">
+            <div class=" col-xs-6">
                 <div class="btn btn-primary" onclick="setpart()">ثبت</div>
 
             </div>
+            <br>
+
+
 
         </div>
 
@@ -70,141 +56,94 @@
 <script src="connection_robo/connection_field_of_study.js"></script>
 <script src="connection_robo/connection_menu.js"></script>
 <script>
-    var flag = false;
-    var tags = '';
-    var xx = 0;
-    var j;
-    var ie;
-    var FlagObj = [];
     var gradeid;
     var field_array = [];
-    //field_array=[0,0];
-    var test=1;
-    var inumber;
+    var flag=false;
+    var key;
     grade_connection.get();
+    first();
+    function first() {
 
+        if(flag==true){
+            var x = document.createElement("div");
+            x.setAttribute("id", 'newlist');
+            x.setAttribute("class", 'col-xs-6 pull-right');
+            document.getElementById('list').appendChild(x);
+
+            field_of_study_connection.get();
+            grade_connection.get_by_name(document.getElementById('grade').value);
+            flag=false;
+            list();
+        }else {
+            setTimeout(first,100);
+        }
+
+    }
     function run() {
         try {
 
-            var element = document.getElementById('number');
+            var element = document.getElementById('newlist');
             element.remove();
-            for (var ee = 0; ee < ie; ee++) {
-                var element2 = document.getElementById('dis1' + ee);
-                element2.remove();
-            }
-            for (var zz = 1; zz < j; zz++) {
-                var element3 = document.getElementById('nm' + zz);
-                element3.remove();
-            }
+
         } catch (e) {
         }
-        var tag = '<label for="name"> انتخاب تعداد زیر منو برای ساخت\n' +
-            '                    <input list="num" id="numb" class="form-control" onchange="createlist();flag=false;">\n' +
-            '                    <datalist id="num" style="color: #000000;" >\n' +
-            '\n' +
-            '\n' +
-            '                    </datalist>\n' +
-            '\n' +
-            '                </label>';
+
         var x = document.createElement("div");
-        x.setAttribute("id", 'number');
+        x.setAttribute("id", 'newlist');
         x.setAttribute("class", 'col-xs-6 pull-right');
-        document.getElementById('new').appendChild(x);
-        document.getElementById('number').innerHTML = tag;
+        document.getElementById('list').appendChild(x);
+
         field_of_study_connection.get();
-        grade_connection.get_by_name(document.getElementById('grade_name').value);
+        grade_connection.get_by_name(document.getElementById('grade').value);
+
+        list();
 
     }
+    function list() {
 
-    function createlist() {
-
-        try {
-
-
-            for (var ee = 0; ee < ie; ee++) {
-                var element2 = document.getElementById('dis1' + ee);
-                element2.remove();
-            }
-            for (var zz = 1; zz < j; zz++) {
-                var element3 = document.getElementById('nm' + zz);
-                element3.remove();
-            }
-        } catch (e) {
-        }
-
-        try {
+        if(flag==true)
+        {
             menu_connection.get_by_grade_id(gradeid);
-
-        } catch (e) {
-
+            flag=false;
+            tike();
+        }else{
+            setTimeout(list,100);
         }
-test=1;
-        checkmnu();
 
     }
+    function tike() {
 
-    function checkmnu() {
-
-        test=test+1;
-        if (flag == true || test==50) {
-            if(test==50)
+        if(flag==true)
+        {
+            var elementss;
+            for(var j=0;j<field_array.length;j++)
             {
-                try{
-                    for(var ar=0;ar<field_array.length;ar++)
-                    {
-                        field_array[ar]='';
-                    }
-                    field_array.length=0;
-                }catch (e){}
+                elementss=document.getElementById(field_array[j]);
+                elementss.checked=true;
             }
-            var inum = document.getElementById('numb').value;
-            ///////////////////////////////////////////////////
-            xx = 0;
-            for (ie = 0; ie < field_array.length; ie++) {
-                field_of_study_connection.get_by_ID(field_array[ie]);
+            flag=false;
 
-                var x = document.createElement("div");
-                x.setAttribute("id", 'dis1' + ie);
-                document.getElementById('dis').appendChild(x);
-
-                setTimeout('', 1000);
-            }
-
-            ///////////////////////////////////////////////////
-            var anumber = parseInt(inumber) - field_array.length;
-            if (inum < anumber) {
-                anumber = inum;
-                document.getElementById('numb').value = anumber;
-            } else {
-
-                document.getElementById('numb').value = anumber;
-                alert('شما نمی توانید بیشتر از' + anumber + 'زیر منو ثبت کنید')
-            }
-            for (j = 1; j <= anumber; j++) {
-                var tag = '<label for="name">انتخاب زیر منو\n' +
-                    '                    <input list="of_study" id="names" class="form-control" >\n' +
-                    '                    <datalist id="of_study" style="color: #000000;" >\n' +
-                    '\n' +
-                    '\n' +
-                    '                    </datalist>\n' +
-                    '\n' +
-                    '                </label>';
-                var x = document.createElement("div");
-                x.setAttribute("id", 'nm' + j);
-                x.setAttribute("class", 'col-xs-6 pull-right');
-                document.getElementById('saveForm').appendChild(x);
-                document.getElementById('nm' + j).innerHTML = tag;
-
-            }
-            field_of_study_connection.get();
-            flag = false;
-        } else {
-
-            setTimeout(checkmnu, 100)
+        }else{
+            setTimeout(tike,100);
         }
 
     }
+function setpart() {
 
+        try {
+
+            menu_connection.delete_by_grade_id(gradeid);
+            /////////////////////////////////////////
+            var input = document.querySelectorAll('input[type="checkbox"]:checked');
+            var i = input.length;
+
+            while (i--) {
+                menu_connection.set(gradeid,input[i].value,'0000-00-00 00:00:00',1);
+            }
+        }catch (e){}
+
+
+}
 </script>
 
 

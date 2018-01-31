@@ -30,6 +30,13 @@ menu_connection.delete = function (ID) {
     };
     ajax.sender_data_json_by_url_callback(menu_connection.controller_url, param, menu_connection.delete_call_back, "POST");
 };
+menu_connection.delete_by_grade_id = function (grade_id) {
+    var param = {
+        act: "menu_delete_by_grade_id",
+        grade_id: grade_id
+    };
+    ajax.sender_data_json_by_url_callback(menu_connection.controller_url, param, menu_connection.delete_call_back, "POST");
+};
 //_____________ set function
 menu_connection.set_call_back = function (data) {
     //TODO: set code after the server response
@@ -38,10 +45,10 @@ menu_connection.set_call_back = function (data) {
     }
 };
 
-menu_connection.set = function (grade_id, field_of_study_id, creationDate) {
+menu_connection.set = function (grade_id, field_of_study_id, creationDate, created_by) {
     var param = {
         act: "menu_set",
-        grade_id: grade_id, field_of_study_id: field_of_study_id, creationDate: creationDate
+        grade_id: grade_id, field_of_study_id: field_of_study_id, creationDate: creationDate, created_by: created_by
     };
     ajax.sender_data_json_by_url_callback(menu_connection.controller_url, param, menu_connection.set_call_back, "POST");
 };
@@ -104,25 +111,27 @@ menu_connection.get_by_ID_grid = function (ID) {
 menu_connection.get_by_grade_id_call_back = function (data) {
     //TODO: set code after the server
 
+    key = data.res;
     flag = false;
 
-    try{
-        for(var ar=0;ar<field_array.length;ar++)
-        {
-            field_array[ar]='';
-        }
-        field_array.length=0;
-    }catch (e){}
-    try{
-    for (var i = 0; i < data.length; i++) {
-        field_array[i] = data[i].field_of_study_id;
-    }
+    try {
 
-    }catch (e){}
+        field_array.splice(0, field_array.length);
+
+    } catch (e) {
+    }
+    try {
+        key = data.res;
+        for (var i = 0; i < data.length; i++) {
+            field_array[i] = data[i].field_of_study_id;
+        }
+
+    } catch (e) {
+    }
     flag = true;
 
     if (menu_connection.debug_mode) {
-       console.log(data);
+        console.log(data);
     }
 };
 menu_connection.get_by_grade_id = function (grade_id) {

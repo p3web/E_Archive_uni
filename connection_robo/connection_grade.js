@@ -7,15 +7,22 @@ var grade_connection = {
 
 grade_connection.get_call_back = function (data) {
     //TODO: set code after the server response
-    var tag = "";
-    for (var i = 0; i < data.length; i++) {
-        tag += '<option value="' + data[i].name + '"style="color: #000000;">' + data[i].name + '</option>';
-    }
-    document.getElementById('grade').innerHTML = tag;
+    try{
+        var tag = "";
+        for (var i = 0; i < data.length; i++) {
+            tag += '<option value="' + data[i].name + '"style="color: #000000;">' + data[i].name + '</option>';
 
+        }
+        document.getElementById('grade').innerHTML = tag;
+
+
+        flag=true;
+    }catch (e){}
+try{
     if (flag) {
         FlagObj.push('S');
     }
+}catch (e){}
 
     if (grade_connection.debug_mode) {
         console.log(data);
@@ -125,6 +132,7 @@ grade_connection.get_by_name_call_back = function (data) {
     try{
         gradeid='';
     gradeid=data[0].ID;
+    flag=true;
     }catch (e){}
     g = true;
     if (grade_connection.debug_mode) {

@@ -116,7 +116,7 @@
                 <div class=" col-xs-6   pull-right">
                     <label for="sex">جنسیت
 
-                        <input list="study1" id="sex" class="form-control" value="مرد">
+                        <input list="study1" id="sex" class="form-control">
                         <datalist id="study1" style="color: #000000;">
                             <option value="مرد" style="color: #000000;">مرد</option>
                             <option value="زن" style="color: #000000;">زن</option>
@@ -322,13 +322,44 @@
     var grade_id = get_query_string_by_param('grade_id');
     var field_of_study_id = get_query_string_by_param('field_of_study_id');
     var flag = false;
+    var FlagObj=[];
     field_of_study_connection.get_by_ID(field_of_study_id);
     field_of_study_connection.get();
     grade_connection.get_by_ID(grade_id);
     grade_connection.get();
     year_connection.get_by_ID(id);
     year_connection.get();
+    GetEditData('user_id', {act: 'user_get_by_id'}, user_connection.controller_url);
+    GetEditData('user_id', {act: 'profile_get_by_user_id'}, profile_connection.controller_url,'user_id');
+    setTimeout(fillsingle, 3000);
+    function fillsingle() {
 
+
+            var issingle = document.getElementById('is_single').value;
+
+           if (issingle != "") {
+                if (issingle == '2') {
+                    document.getElementById('is_single').value = 'متاهل';
+                } else if (issingle == '1') {
+                    document.getElementById('is_single').value = 'مجرد';
+                }
+            } else {
+                setTimeout(fillsingle, 100);
+            }
+
+    }
+    var checkFillOption = function () {
+        debugger;
+        if (FlagObj.length == 3) {
+            GetEditData('user_id', {act: 'student_get_by_user_id'}, student_connection.controller_url, 'user_id');
+            setTimeout(dt, 3000);
+        }
+        else {
+            setTimeout(checkFillOption, 100);
+        }
+    };
+
+    checkFillOption();
     var usid = "";
 
     function checkuser() {

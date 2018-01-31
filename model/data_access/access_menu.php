@@ -28,10 +28,11 @@
 
             $data = data::selects("`menu`", "`grade_id` = '$grade_id'");
 
-                       if (count($data[0]) != 0) {
+                       if (count($data) != 0) {
                            return $data;
                        } else {
-                           return false;
+                           $arr['res'] = false;
+                           return $arr;
                        }
 
                 }public static function get_menu_by_field_of_study_id($field_of_study_id) {
@@ -106,13 +107,16 @@
                  return data::delete("`menu`", "`ID` = $ID");
                 }
 
-            
+                public static function delete_by_grade_id ($grade_id) {
+
+                    return data::delete("`menu`", "`grade_id` = $grade_id");
+                }
         //=========== set menu 
 
 
-        public static function set_menu ($grade_id , $field_of_study_id , $creationDate) {
+        public static function set_menu ($grade_id , $field_of_study_id , $creationDate,$created_by) {
 
-                 return data::insertinto("`menu`","grade_id, field_of_study_id, creationDate" , "'$grade_id', '$field_of_study_id', '$creationDate'");
+                 return data::insertinto("`menu`","grade_id, field_of_study_id, creationDate,created_by" , "'$grade_id', '$field_of_study_id', '$creationDate','$created_by'");
                 }
 
             

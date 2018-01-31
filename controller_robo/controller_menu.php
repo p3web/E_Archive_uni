@@ -268,16 +268,31 @@
                 //controller_main_function::send_result($result);
                 controller_main_function::send_msg(lang::$success, lang::$message, "success");
             break;
-            
+
+        case 'menu_delete_by_grade_id':
+            if(!isset($userAccess["delete_menu"]) && !$debugMode){
+                controller_main_function::send_msg(lang::$not_access, lang::$error);
+            }
+            $valid_data = controller_main_function::check_validation(array("grade_id"));
+            if (!isset($valid_data['is_valid']) || $valid_data['is_valid'] == false) {
+                controller_main_function::send_msg(lang::$invalid_data, lang::$error);
+            }
+            $result = access_menu::delete_by_grade_id($_REQUEST["grade_id"]);
+            //controller_main_function::send_result($result);
+            //$result = array('data'=> true);
+            //controller_main_function::send_result($result);
+            controller_main_function::send_msg(lang::$success, lang::$message, "success");
+            break;
+
             case 'menu_set':
             if(!isset($userAccess["set_menu"]) && !$debugMode){
                     controller_main_function::send_msg(lang::$not_access, lang::$error);
                     }
-                $valid_data = controller_main_function::check_validation(array("grade_id" ,"field_of_study_id" ,"creationDate"));
+                $valid_data = controller_main_function::check_validation(array("grade_id" ,"field_of_study_id" ,"creationDate","created_by"));
                 if (!isset($valid_data['is_valid']) || $valid_data['is_valid'] == false) {
                     controller_main_function::send_msg(lang::$invalid_data, lang::$error);
                 }
-                $result = access_menu::set_menu($_REQUEST["grade_id"],$_REQUEST["field_of_study_id"],$_REQUEST["creationDate"]);
+                $result = access_menu::set_menu($_REQUEST["grade_id"],$_REQUEST["field_of_study_id"],$_REQUEST["creationDate"],$_REQUEST["created_by"]);
                 //controller_main_function::send_result($result);
                 //$result = array('data'=> true);
                 //controller_main_function::send_result($result);

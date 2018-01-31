@@ -1,7 +1,0 @@
-{ "":"" ,"ID" : { "Type" : "int(11)" , "isNull" : "NO" , "Key" : "PRI" , "Default" : "" , "Extre" : "auto_increment"}
-            ,"act" : { "Type" : "varchar(50)" , "isNull" : "YES" , "Key" : "" , "Default" : "" , "Extre" : ""}
-            ,"table" : { "Type" : "varchar(50)" , "isNull" : "YES" , "Key" : "" , "Default" : "" , "Extre" : ""}
-            ,"log" : { "Type" : "varchar(1000)" , "isNull" : "YES" , "Key" : "" , "Default" : "" , "Extre" : ""}
-            ,"created_by" : { "Type" : "int(11)" , "isNull" : "YES" , "Key" : "" , "Default" : "0" , "Extre" : ""}
-            ,"creationDate" : { "Type" : "timestamp" , "isNull" : "NO" , "Key" : "" , "Default" : "CURRENT_TIMESTAMP" , "Extre" : ""}
-            }

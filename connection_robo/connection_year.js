@@ -13,9 +13,13 @@ year_connection.get_call_back = function (data) {
         tag += '<option value="' + data[i].name + '"style="color: #000000;">' + data[i].name + '</option>';
     }
     document.getElementById('year').innerHTML = tag;
-    if(flag){
-        FlagObj.push('S');
-    }
+    try {
+        flag = true;
+        if(flag){
+            FlagObj.push('S');
+        }
+    }catch (e){}
+
     if (year_connection.debug_mode) {
         console.log(data);
     }
