@@ -24,17 +24,17 @@
 
 <script src="connection_robo/connection_student_list.js"></script>
 <script>
-    var id = get_query_string_by_param('ID');
+    var year1 = get_query_string_by_param('ID');
     var grade_id1 = get_query_string_by_param('grade_id');
     var field_of_study_id1 = get_query_string_by_param('field_of_study_id');
-    student_list_connection.student_list_get_for_grid(id,grade_id1,field_of_study_id1);
+    student_list_connection.student_list_get_for_grid(year1,grade_id1,field_of_study_id1);
 
 
 
 
     function insert() {
        // alert(id);alert(grade_id1);alert(field_of_study_id1);
-        window.location.href='#pages/studentset'+'?ID='+id+'&grade_id='+grade_id1+'&field_of_study_id='+field_of_study_id1;
+        window.location.href='#pages/studentset'+'?ID='+year1+'&grade_id='+grade_id1+'&field_of_study_id='+field_of_study_id1;
     }
 
 
@@ -45,15 +45,15 @@
 
     function Edit(elem, href) {
         var id = grid_student_list.get_field_of_row(elem, 'user_id');
-        window.location.href = '#pages/' + href + '?user_id=' + id+'&ID='+id+'&grade_id='+grade_id1+'&field_of_study_id='+field_of_study_id1;
+        window.location.href = '#pages/' + href + '?user_id=' + id+'&ID='+year1+'&grade_id='+grade_id1+'&field_of_study_id='+field_of_study_id1;
     }
     function file(elem, href) {
         var id = grid_student_list.get_field_of_row(elem, 'ID');
         window.location.href = '#pages/' + href + '?ID=' + id;
     }
     function delete_user(elem, href) {
-        var ids = grid_student_list.get_field_of_row(elem, 'user_id',id,grade_id1,field_of_study_id1);
-        window.location.href = '#pages/' + href + '?user_id=' + ids+'&ID='+id+'&grade_id='+grade_id1+'&field_of_study_id='+field_of_study_id1;
+        var ids = grid_student_list.get_field_of_row(elem, 'user_id',year1,grade_id1,field_of_study_id1);
+        window.location.href = '#pages/' + href + '?user_id=' + ids+'&ID='+year1+'&grade_id='+grade_id1+'&field_of_study_id='+field_of_study_id1;
     }
     // —---— delete Grid row
    /* function deleteIt(elem, act) {
@@ -84,7 +84,7 @@
     }*/
     function gridRefrsh() {
         document.getElementById('PGrid').innerHTML = '';
-        student_list_connection.student_list_get_for_grid(id,grade_id1,field_of_study_id1);
+        student_list_connection.student_list_get_for_grid(year1,grade_id1,field_of_study_id1);
     }
 
 

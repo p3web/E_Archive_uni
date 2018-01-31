@@ -204,9 +204,13 @@ user_connection.get_by_nik_name_grid = function (nik_name) {
 };
 user_connection.get_by_user_name_call_back = function (data) {
     //TODO: set code after the server response
-    var un=data[0].ID;
+    res=data.res;
+    if(res !=false)
+    {
+        var un=data[0].ID;
+        document.getElementById('user_name1').value=un;
+    }
 
-    document.getElementById('user_name1').value=un;
     if (user_connection.debug_mode) {
         console.log(data);
     }

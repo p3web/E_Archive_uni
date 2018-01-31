@@ -102,7 +102,7 @@
             <br>
             <hr class="hrstyle">
             <div class="col-xs-12" id="saveForm1">
-
+                <input type="hidden" class="form-control" id="ID1" data-realID="ID">
                 <div class="">
                     <label for="user_id">
                         <input type="hidden" class="form-control" id="user_id"></label>
@@ -178,7 +178,7 @@
                 <div class=" col-xs-6   pull-right">
                     <label for="address">آدرس
                         <input type="text" class="form-control" id="address"
-                               onkeyup="checkVerification(this.id , 'address')"></label>
+                               onkeyup="checkVerification(this.id , 'address')"> </label>
                     <input type="hidden" value="false" id="checkaddress">
                 </div>
 
@@ -191,15 +191,15 @@
                 </div>
 
                 <div class="mdl-layout-spacer"></div>
-
+                <input type="hidden" id="creationDate1" data-realID="creationDate">
 
             </div>
             <br>
             <br>
             <hr class="hrstyle" style="margin-top: 420px">
 
-            <div class="col-xs-12 saveForm" id="saveForm2">
-
+            <div class="col-xs-12" id="saveForm2">
+                <input type="hidden" class="form-control" id="ID2" data-realID="ID">
                 <div class="">
                     <label for="user_id">
                         <input type="hidden" class="form-control" id="user_id1" data-realID="user_id"></label>
@@ -291,9 +291,11 @@
 
             </div>
 
+
         </div>
 
     </div>
+</div>
 
 </div>
 <script src="connection_robo_user/connection_robo/connection_user.js"></script>
@@ -314,45 +316,53 @@
     var yeid = '';
     var grid = '';
     var fid = '';
-    var f=false;
-    var g=false;
-    var y=false;
-    var user_id = get_query_string_by_param('user_id');
-    var id = get_query_string_by_param('ID');
-    var grade_id = get_query_string_by_param('grade_id');
-    var field_of_study_id = get_query_string_by_param('field_of_study_id');
+    var f = false;
+    var g = false;
+    var y = false;
+    var user_id22 = get_query_string_by_param('user_id');
+    var id22 = get_query_string_by_param('ID');
+    var grade_id22 = get_query_string_by_param('grade_id');
+    var field_of_study_id22 = get_query_string_by_param('field_of_study_id');
     var flag = false;
-    var FlagObj=[];
-    field_of_study_connection.get_by_ID(field_of_study_id);
-    field_of_study_connection.get();
-    grade_connection.get_by_ID(grade_id);
+    var FlagObj = [];
+    var res;
+    var stid;
+    var proid1;
+    var srid;
     grade_connection.get();
-    year_connection.get_by_ID(id);
+    field_of_study_connection.get();
+
     year_connection.get();
     GetEditData('user_id', {act: 'user_get_by_id'}, user_connection.controller_url);
-    GetEditData('user_id', {act: 'profile_get_by_user_id'}, profile_connection.controller_url,'user_id');
+    GetEditData1('user_id', {act: 'profile_get_by_user_id'}, profile_connection.controller_url, 'user_id', 'saveForm1');
     setTimeout(fillsingle, 3000);
+
     function fillsingle() {
 
 
-            var issingle = document.getElementById('is_single').value;
+        var issingle = document.getElementById('is_single').value;
 
-           if (issingle != "") {
-                if (issingle == '2') {
-                    document.getElementById('is_single').value = 'متاهل';
-                } else if (issingle == '1') {
-                    document.getElementById('is_single').value = 'مجرد';
-                }
-            } else {
-                setTimeout(fillsingle, 100);
+        if (issingle != "") {
+            if (issingle == '2') {
+                document.getElementById('is_single').value = 'متاهل';
+            } else if (issingle == '1') {
+                document.getElementById('is_single').value = 'مجرد';
             }
+        } else {
+            setTimeout(fillsingle, 100);
+        }
 
     }
+
     var checkFillOption = function () {
-        debugger;
-        if (FlagObj.length == 3) {
-            GetEditData('user_id', {act: 'student_get_by_user_id'}, student_connection.controller_url, 'user_id');
-            setTimeout(dt, 3000);
+
+        proid1 = document.getElementById('ID').value;
+        if (FlagObj.length == 3 && proid1!="") {
+
+
+            GetEditData1('user_id', {act: 'student_get_by_user_id'}, student_connection.controller_url, 'user_id', 'saveForm2');
+
+            filldate_field_grade_year();
         }
         else {
             setTimeout(checkFillOption, 100);
@@ -360,21 +370,24 @@
     };
 
     checkFillOption();
-    var usid = "";
 
-    function checkuser() {
+    function filldate_field_grade_year() {
+        var year = document.getElementById('year_id').value;
+        var field_of_study = document.getElementById('field_of_study_id').value;
+        var grade = document.getElementById('grade_id').value;
+        if (year != "" && field_of_study != "" && grade != "") {
+            stid = document.getElementById('student_id').value;
+            srid = document.getElementById('ID').value;
+            dat();
+            field_of_study_connection.get_by_ID(document.getElementById('field_of_study_id').value);
+            grade_connection.get_by_ID(document.getElementById('grade_id').value);
+            year_connection.get_by_ID(document.getElementById('year_id').value);
 
-        var flags = document.getElementById('user_name1').value;
-
-        if (flags == "" || flags == null) {
-            document.getElementById('user_name').value = document.getElementById('student_id').value;
-            document.getElementById('pssword').value = document.getElementById('national_code').value;
-            setForm('saveForm', 'user_set', user_connection.controller_url, checkSet);
         } else {
-            alert(' این شماره دانشجویی قبلاً ثبت شده');
-            flags = "";
-            document.getElementById('user_name1').value = "";
+            setTimeout(filldate_field_grade_year, 3000)
         }
+
+
     }
 
 
@@ -385,6 +398,83 @@
         weekNumbers: false
     });
 
+    function dt() {
+        var dt = document.getElementById('date_graduate_').value;
+
+        var y = dt.slice(0, 2);
+
+        if (parseInt(y) != 13) {
+
+            var m = dt.slice(3, 5);
+            var d = dt.slice(6, 8);
+            y = parseInt(y) + 1300;
+            dt = "";
+            dt = y + '/' + m + '/' + d;
+        }
+
+
+        document.getElementById('date_graduate').value = dt;
+        var dt = GetTmeStamp('date_graduate');
+
+
+
+
+
+        return dt;
+    }
+
+
+    function dat() {
+        var dt1 = document.getElementById('date_graduate').value;
+        var ds = convertTimeStampToJalali(dt1);
+        document.getElementById('date_graduate_').value = ds;
+    }
+
+    function setpart() {
+
+        //setForm('part', 'partitions_set', 'controller_robo/controller_partitions.php', console.log);
+
+        document.getElementById('last_password_failed').value = datenow();
+        document.getElementById('last_change_password').value = datenow();
+        document.getElementById('last_modified').value = datenow();
+        document.getElementById('last_modified1').value = datenow();
+
+        var stid1 = document.getElementById('student_id').value;
+        flag = false;
+        if (stid == stid1) {
+            res = false;
+            checkuser();
+        } else {
+            res = true;
+            user_connection.get_by_user_name(stid1.toString());
+            checkuser();
+        }
+
+
+    }
+
+    function checkuser() {
+
+        if (res == false) {
+            var flags = document.getElementById('user_name1').value;
+
+            if (flags == "" || flags == null) {
+                document.getElementById('user_name').value = document.getElementById('student_id').value;
+                document.getElementById('pssword').value = document.getElementById('national_code').value;
+                //document.getElementById('creationDate').value ='';
+                document.getElementById('ID').value = user_id22;
+                setForm('saveForm', 'user_edit_by_id', user_connection.controller_url, checkSet);
+            } else {
+                alert(' این شماره دانشجویی قبلاً ثبت شده');
+                flags = "";
+                document.getElementById('user_name1').value = "";
+            }
+        } else {
+            setTimeout(checkuser, 100);
+        }
+
+    }
+
     function checkSet(data) {
 
         if (data.data != false) {
@@ -394,17 +484,19 @@
             } else if (si == 'متاهل') {
                 document.getElementById('is_single').value = 2;
             }
-            usid = data.data;
+            //var usid = data.data;
 
-            document.getElementById('user_id').value = usid;
-            setForm('saveForm1', 'profile_set', profile_connection.controller_url, checkSetpro);
+            document.getElementById('user_id').value = user_id22;
+            document.getElementById('ID1').value = proid1;
+            document.getElementById('creationDate1').value='0000-00-00 00:00:00';
+            setForm('saveForm1', 'profile_edit_by_user_id', profile_connection.controller_url, checkSetpro);
         }
     }
 
     function checkSetpro(data) {
 
         if (data.data != false) {
-            document.getElementById('user_id1').value = usid;
+            document.getElementById('user_id1').value = user_id22;
             yeid = document.getElementById('year_id').value;
             grid = document.getElementById('grade_id').value;
             fid = document.getElementById('field_of_study_id').value;
@@ -416,57 +508,28 @@
         }
     }
 
-    function setstu(){
+    function setstu() {
 
-        if(f==true && y== true && g==true){
-            setForm('saveForm2', 'student_set', student_connection.controller_url,checkSetstu);
-        }else{
-            setTimeout(setstu,100);
+        if (f == true && y == true && g == true) {
+            document.getElementById('ID2').value = srid;
+            document.getElementById('date_graduate').value=dt();
+            document.getElementById('creationDate2').value='0000-00-00 00:00:00';
+            setForm('saveForm2', 'student_edit_by_user_id', student_connection.controller_url, checkSetstu);
+        } else {
+            setTimeout(setstu, 100);
         }
 
     }
+
     function checkSetstu(data) {
 
-        if (data.data == true)
-            next();
+         if (data.data != false)
+          next();
     }
-
-    function setpart() {
-
-        //setForm('part', 'partitions_set', 'controller_robo/controller_partitions.php', console.log);
-
-        document.getElementById('last_password_failed').value = datenow();
-        document.getElementById('last_change_password').value = datenow();
-        document.getElementById('last_modified').value = datenow();
-        document.getElementById('last_modified1').value = datenow();
-        dt();
-        var stid = document.getElementById('student_id').value;
-        user_connection.get_by_user_name(stid.toString());
-        setTimeout(checkuser, 3000);
-
-
-    }
-
-    function dt() {
-        var dt = document.getElementById('date_graduate_').value;
-        var y = dt.slice(0, 2);
-        var m = dt.slice(3, 5);
-        var d = dt.slice(6, 8);
-        y = parseInt(y) + 1300;
-        dt = y + '/' + m + '/' + d;
-        document.getElementById('date_graduate').value = GetTmeStamp(dt);
-
-        // miladi = miladitojalali(y,m,d);
-
-        // dt=miladi[0]+'-'+miladi[1]+'-'+miladi[2]+' '+'00:00:00';
-        return dt;
-    }
-
-    //GetEditData('ID', {act: 'user_get_by_ID'}, user_connection.controller_url);
 
     function next() {
         var name = document.getElementById('user_name').value;
-        window.location.href = '#pages/studentlist' + '?ID=' + id + '&grade_id=' + grade_id + '&field_of_study_id=' + field_of_study_id;
+        window.location.href = '#pages/studentlist' + '?ID=' + id22 + '&grade_id=' + grade_id22 + '&field_of_study_id=' + field_of_study_id22;
 
     }
 
@@ -476,7 +539,7 @@
         if (e.keyCode == 32)
             e.preventDefault();
     })
-
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 </script>
 

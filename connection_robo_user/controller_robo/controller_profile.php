@@ -261,9 +261,9 @@
                 }
                 $result = access_profile::edit_profile_by_user_id($_REQUEST["ID"],$_REQUEST["user_id"],$_REQUEST["age"],$_REQUEST["sex"],$_REQUEST["father_name"],$_REQUEST["mather_name"],$_REQUEST["is_single"],$_REQUEST["national_code"],$_REQUEST["email"],$_REQUEST["tel"],$_REQUEST["mobile"],$_REQUEST["fax"],$_REQUEST["address"],$_REQUEST["last_modified"],$_REQUEST["created_by"],$_REQUEST["creationDate"]);
                 //controller_main_function::send_result($result);
-                //$result = array('data'=> true);
-                //controller_main_function::send_result($result);
-                controller_main_function::send_msg(lang::$success, lang::$message, "success");
+                $result = array('data'=> $result);
+                controller_main_function::send_result($result);
+               // controller_main_function::send_msg(lang::$success, lang::$message, "success");
             break;
             
             case 'profile_edit_by_age':
@@ -531,7 +531,7 @@
                 }
                 $result = access_profile::edit_profile_sex_by_id($_REQUEST["id"],$_REQUEST["sex"]);
                 //controller_main_function::send_result($result);
-                //$result = array('data'=> true);
+                $result = array('data'=> true);
                 //controller_main_function::send_result($result);
                 controller_main_function::send_msg(lang::$success, lang::$message, "success");
             break;
@@ -756,7 +756,7 @@
                 }
                 $result = access_profile::set_profile($_REQUEST["user_id"],$_REQUEST["age"],$_REQUEST["sex"],$_REQUEST["father_name"],$_REQUEST["mather_name"],$_REQUEST["is_single"],$_REQUEST["national_code"],$_REQUEST["email"],$_REQUEST["tel"],$_REQUEST["mobile"],$_REQUEST["fax"],$_REQUEST["address"],$_REQUEST["last_modified"],$_REQUEST["created_by"]);
                 //controller_main_function::send_result($result);
-                $result = array('data'=> true);
+                $result = array('data'=> $result);
                 controller_main_function::send_result($result);
                 //controller_main_function::send_msg(lang::$success, lang::$message, "success");
             break;

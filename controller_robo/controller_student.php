@@ -248,9 +248,9 @@
                 }
                 $result = access_student::edit_student_by_user_id($_REQUEST["ID"],$_REQUEST["user_id"],$_REQUEST["student_id"],$_REQUEST["grade_id"],$_REQUEST["year_id"],$_REQUEST["field_of_study_id"],$_REQUEST["transfer_unit"],$_REQUEST["accept_unit"],$_REQUEST["term_graduate"],$_REQUEST["average"],$_REQUEST["system_type"],$_REQUEST["date_graduate"],$_REQUEST["created_by"],$_REQUEST["creationDate"]);
                 //controller_main_function::send_result($result);
-                //$result = array('data'=> true);
-                //controller_main_function::send_result($result);
-                controller_main_function::send_msg(lang::$success, lang::$message, "success");
+                $result = array('data'=> $result);
+                controller_main_function::send_result($result);
+                //controller_main_function::send_msg(lang::$success, lang::$message, "success");
             break;
             
             case 'student_edit_by_student_id':

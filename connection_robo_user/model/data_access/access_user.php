@@ -66,10 +66,11 @@ class access_user
     {
 
         $data = data::selects("`user`", "`user_name` = '$user_name'");
-        if (count($data[0]) != 0) {
+        if (count($data) != 0) {
             return $data;
         } else {
-            return false;
+            $arr['res'] = false;
+            return $arr;
         }
     }
 

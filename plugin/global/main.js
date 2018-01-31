@@ -50,8 +50,28 @@ function get_query_string_by_param(name, url) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
+////////////////////////////////////////////////////////////
+function GetEditData1(queryStringName, param, url,key,kes) {
+    var queryStringValue = get_query_string_by_param(queryStringName);
 
+    if (queryStringValue != null && queryStringValue != '') {
+        // create hidden input for id
+      /* var idInput = document.createElement('input');
+        idInput.setAttribute('type', 'hidden');
+        idInput.setAttribute('id', 'ID');
+        document.getElementById(kes).appendChild(idInput);*/
+        //----- set id in param
+        if(key == null)
+            param['ID'] = queryStringValue;
+        else
+            param[key] = queryStringValue;
 
+        if (url == null) {
+            url = ajax.url;
+        }
+        ajax.sender_data_json_by_url_callback(url, param, fillForm);
+    }
+}
 //----- get data (for fill form)
 function GetEditData(queryStringName, param, url,key) {
     var queryStringValue = get_query_string_by_param(queryStringName);
@@ -62,7 +82,6 @@ function GetEditData(queryStringName, param, url,key) {
         idInput.setAttribute('type', 'hidden');
         idInput.setAttribute('id', 'ID');
         document.getElementById('saveForm').appendChild(idInput);
-
         //----- set id in param
         if(key == null)
         param['ID'] = queryStringValue;

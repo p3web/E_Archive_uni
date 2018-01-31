@@ -196,9 +196,9 @@
                 }
                 $result = access_user::edit_user($_REQUEST["ID"],$_REQUEST["name"],$_REQUEST["lastname"],$_REQUEST["nik_name"],$_REQUEST["user_name"],$_REQUEST["pssword"],$_REQUEST["avatar"],$_REQUEST["last_password_failed"],$_REQUEST["count_password_failed"],$_REQUEST["last_change_password"],$_REQUEST["last_modified"],$_REQUEST["created_by"],$_REQUEST["creationDate"]);
                 //controller_main_function::send_result($result);
-                //$result = array('data'=> true);
+                $result = array('data'=> $result);
                 //controller_main_function::send_result($result);
-                controller_main_function::send_msg(lang::$success, lang::$message, "success");
+                //controller_main_function::send_msg(lang::$success, lang::$message, "success");
             break;
             
             case 'user_edit_by_id':
@@ -211,9 +211,9 @@
                 }
                 $result = access_user::edit_user_by_id($_REQUEST["ID"],$_REQUEST["name"],$_REQUEST["lastname"],$_REQUEST["nik_name"],$_REQUEST["user_name"],$_REQUEST["pssword"],$_REQUEST["avatar"],$_REQUEST["last_password_failed"],$_REQUEST["count_password_failed"],$_REQUEST["last_change_password"],$_REQUEST["last_modified"],$_REQUEST["created_by"],$_REQUEST["creationDate"]);
                 //controller_main_function::send_result($result);
-                //$result = array('data'=> true);
-                //controller_main_function::send_result($result);
-                controller_main_function::send_msg(lang::$success, lang::$message, "success");
+               $result = array('data'=> $result);
+                controller_main_function::send_result($result);
+               controller_main_function::send_msg(lang::$success, lang::$message, "success");
             break;
             
             case 'user_edit_by_name':
