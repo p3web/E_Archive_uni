@@ -111,25 +111,28 @@ menu_connection.get_by_ID_grid = function (ID) {
 menu_connection.get_by_grade_id_call_back = function (data) {
     //TODO: set code after the server
 
-    key = data.res;
+  //  key = data.res;
+
     flag = false;
 
-    try {
+   /* try {
 
-        field_array.splice(0, field_array.length);
-
-    } catch (e) {
-    }
-    try {
-        key = data.res;
-        for (var i = 0; i < data.length; i++) {
-            field_array[i] = data[i].field_of_study_id;
-        }
+        //field_array.splice(0, field_array.length);
+        field_array=[];
 
     } catch (e) {
+    }*/
+   /* try {
+
+    } catch (e) {
+    }*/
+   test="";
+test=data[0].field_of_study_id;
+    for (var iz = 0; iz < data.length; iz++) {
+        field_array[iz] = data[iz].field_of_study_id;
+
     }
     flag = true;
-
     if (menu_connection.debug_mode) {
         console.log(data);
     }

@@ -73,7 +73,8 @@
             field_of_study_connection.get();
             grade_connection.get_by_name(document.getElementById('grade').value);
             flag=false;
-            list();
+
+      list();
         }else {
             setTimeout(first,100);
         }
@@ -94,16 +95,23 @@
         document.getElementById('list').appendChild(x);
 
         field_of_study_connection.get();
+
+        gradeid=undefined;
         grade_connection.get_by_name(document.getElementById('grade').value);
 
         list();
 
     }
+    var test;
     function list() {
 
-        if(flag==true)
+
+        if(flag==true && gradeid!=undefined)
         {
+            field_array=[];
+
             menu_connection.get_by_grade_id(gradeid);
+
             flag=false;
             tike();
         }else{
@@ -113,7 +121,7 @@
     }
     function tike() {
 
-        if(flag==true)
+        if(flag==true && field_array.length!=0)
         {
             var elementss;
             for(var j=0;j<field_array.length;j++)
