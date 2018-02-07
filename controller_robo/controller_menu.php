@@ -281,7 +281,7 @@
             //controller_main_function::send_result($result);
             //$result = array('data'=> true);
             //controller_main_function::send_result($result);
-            controller_main_function::send_msg(lang::$success, lang::$message, "success");
+           // controller_main_function::send_msg(lang::$success, lang::$message, "success");
             break;
 
             case 'menu_set':
@@ -294,9 +294,9 @@
                 }
                 $result = access_menu::set_menu($_REQUEST["grade_id"],$_REQUEST["field_of_study_id"],$_REQUEST["creationDate"],$_REQUEST["created_by"]);
                 //controller_main_function::send_result($result);
-                //$result = array('data'=> true);
-                //controller_main_function::send_result($result);
-                controller_main_function::send_msg(lang::$success, lang::$message, "success");
+                $result = array('data'=> true);
+                controller_main_function::send_result($result);
+                //controller_main_function::send_msg(lang::$success, lang::$message, "success");
             break;
             
                }

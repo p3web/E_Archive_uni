@@ -33,7 +33,7 @@
                 </label>
             </div>
 
-             <div class=" col-xs-6   pull-right input-group-text" id="list">
+            <div class=" col-xs-6   pull-right input-group-text" id="list">
 
 
             </div>
@@ -43,7 +43,6 @@
 
             </div>
             <br>
-
 
 
         </div>
@@ -58,13 +57,19 @@
 <script>
     var gradeid;
     var field_array = [];
-    var flag=false;
+    var flag = false;
     var key;
+    var test = true;
+    var jp = 0;
+    var ip=0;
+    var input;
+    var load=[];
     grade_connection.get();
     first();
+
     function first() {
 
-        if(flag==true){
+        if (flag == true) {
             var x = document.createElement("div");
             x.setAttribute("id", 'newlist');
             x.setAttribute("class", 'col-xs-6 pull-right');
@@ -72,14 +77,15 @@
 
             field_of_study_connection.get();
             grade_connection.get_by_name(document.getElementById('grade').value);
-            flag=false;
+            flag = false;
 
-      list();
-        }else {
-            setTimeout(first,100);
+            list();
+        } else {
+            setTimeout(first, 100);
         }
 
     }
+
     function run() {
         try {
 
@@ -96,62 +102,87 @@
 
         field_of_study_connection.get();
 
-        gradeid=undefined;
+        gradeid = undefined;
         grade_connection.get_by_name(document.getElementById('grade').value);
 
         list();
 
     }
-    var test;
+
+
     function list() {
 
 
-        if(flag==true && gradeid!=undefined)
-        {
-            field_array=[];
+        if (flag == true && gradeid != undefined) {
+            field_array = [];
 
             menu_connection.get_by_grade_id(gradeid);
 
-            flag=false;
+            flag = false;
             tike();
-        }else{
-            setTimeout(list,100);
+        } else {
+            setTimeout(list, 100);
         }
 
     }
+
     function tike() {
 
-        if(flag==true && field_array.length!=0)
-        {
+        if (flag == true && field_array.length != 0) {
             var elementss;
-            for(var j=0;j<field_array.length;j++)
-            {
-                elementss=document.getElementById(field_array[j]);
-                elementss.checked=true;
+            for (var j = 0; j < field_array.length; j++) {
+                elementss = document.getElementById(field_array[j]);
+                elementss.checked = true;
             }
-            flag=false;
+            flag = false;
 
-        }else{
-            setTimeout(tike,100);
+        } else {
+            setTimeout(tike, 100);
         }
 
     }
-function setpart() {
+
+
+    function setpart() {
 
         try {
-
+            CreateLoader(true);
             menu_connection.delete_by_grade_id(gradeid);
             /////////////////////////////////////////
-            var input = document.querySelectorAll('input[type="checkbox"]:checked');
-            var i = input.length;
+            input = document.querySelectorAll('input[type="checkbox"]:checked');
+             ip = input.length;
+             jp=0;
+            plus();
 
-            while (i--) {
-                menu_connection.set(gradeid,input[i].value,'0000-00-00 00:00:00',1);
+        } catch (e) {
+        }
+
+
+    }
+
+    function plus() {
+
+
+        if (test == true && jp<ip) {
+
+            menu_connection.set(gradeid, input[jp].value, '0000-00-00 00:00:00', 1);
+            jp += 1;
+            if(load.length==0 && jp==ip-1)
+            {
+                removeLoader();
+                load=[];
             }
-        }catch (e){}
+            test=false;
+            plus();
+        } else if(jp<ip && test != true){
+            setTimeout(plus, 10);
+        }
+        if(load.length==input.length || load.length==input.length-1){
+            removeLoader();
+            load=[];
+        }
+    }
 
-
-}
 </script>
 
 

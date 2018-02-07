@@ -7,9 +7,9 @@ class data
 	{
 
         $servername = "localhost";
-        $username = "admin";
-        $password = "admin";
-        $database="e_archive";
+        $username = "wpacom_E_Archive";
+        $password = "123123$#@!";
+        $database="wpacom_university";
 		self::$database = $database;
 		try {
 			$con =  new PDO("mysql:host=$servername;dbname=$database", $username, $password);

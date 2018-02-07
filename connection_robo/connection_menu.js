@@ -40,6 +40,10 @@ menu_connection.delete_by_grade_id = function (grade_id) {
 //_____________ set function
 menu_connection.set_call_back = function (data) {
     //TODO: set code after the server response
+    test=data.data;
+    if (test)
+    load.push('l');
+
     if (menu_connection.debug_mode) {
         console.log(data);
     }
@@ -111,27 +115,26 @@ menu_connection.get_by_ID_grid = function (ID) {
 menu_connection.get_by_grade_id_call_back = function (data) {
     //TODO: set code after the server
 
-  //  key = data.res;
+    //  key = data.res;
 
     flag = false;
 
-   /* try {
+    /* try {
 
-        //field_array.splice(0, field_array.length);
-        field_array=[];
+         //field_array.splice(0, field_array.length);
+         field_array=[];
 
+     } catch (e) {
+     }*/
+    try {
+        for (var iz = 0; iz < data.length; iz++) {
+            field_array[iz] = data[iz].field_of_study_id;
+
+        }
     } catch (e) {
-    }*/
-   /* try {
-
-    } catch (e) {
-    }*/
-   test="";
-test=data[0].field_of_study_id;
-    for (var iz = 0; iz < data.length; iz++) {
-        field_array[iz] = data[iz].field_of_study_id;
-
     }
+
+
     flag = true;
     if (menu_connection.debug_mode) {
         console.log(data);
